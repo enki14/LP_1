@@ -1,0 +1,346 @@
+$acsent_P: #8c3cff;
+$acsent_G: #14eb0a;
+
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", 游ゴシック, "Yu Gothic", 
+    YuGothic, メイリオ, "Lucida Grande", Osaka, Verdana, "ＭＳ Ｐゴシック", sans-serif;
+}
+
+
+
+section{
+    text-align: center;
+}
+
+
+body{
+    background: rgb(241, 240, 245);
+    
+    header{
+        z-index: 5;
+
+        div{
+            padding: 1.5rem;
+            z-index: 4;
+            box-shadow: 0 2px 3px 0 rgb(182 190 197 / 40%);
+
+            img{
+                width: 170px;
+            }
+        }
+         
+
+        .btn-aria{
+            padding: 4rem 0; 
+            background: #f1f0f5;
+            
+
+        
+
+            a{
+                height: 4rem;
+                font-size: 1.6rem;
+                line-height: 4rem;
+                background: $acsent_P;
+                margin: 0 auto;
+                border-radius: 3.5rem;
+                display: block;
+                position: relative;
+                max-width: 33rem;
+                margin: 0 auto;
+                box-shadow: 0 0.3rem 0 0 #6d1fdc;
+                color: #fff;
+                font-weight: 700;
+                letter-spacing: 0.03em;
+                transition: opacity .4s;
+                text-decoration: none;
+            }
+         
+            
+            
+        }
+    }
+
+    .content{
+
+        .content-header{
+            .header-img{
+                height: 170px;
+                
+                
+                h2{
+                    padding-left: 3rem;
+                    padding-right: 3rem;
+                    margin: 0 auto;
+                    width: 1042px;
+
+                    img{
+                        object-fit: cover;
+                        height: 205px;
+                        // width: auto;
+                    }
+                }
+            }
+
+            
+            section{
+                padding: 2rem 0 4rem; // 上部の.header-img要素の白帯をちょうど良い大きさに変更している
+                background: #f1f0f5; // paddingとともに色を付けて画像のはみ出した部分を再現している
+
+                h3{
+                    margin-top: 30px;
+                    margin-bottom: 30px;
+
+                    img{
+                        width: 35%;
+                        height: auto;
+                    }
+                    
+                }
+    
+                .ch_img{
+                    padding-left: 3rem;
+                    padding-right: 3rem;
+    
+                    .row .two-campaign img{
+                        width: 473px;
+                        height: auto;
+                        max-width: 100%;
+                    }
+                }
+            }
+
+
+        }
+
+        #campaign-1{
+            padding-left: 5rem;
+            padding-right: 5rem;
+            padding-top: 8.6em; // .gaiyoo要素をちょうど良い位置に下げている
+            position: relative;
+            background: url('../images/l-campaign01_bdrimg.png') no-repeat;  // 緑の部分とをくっつけた状態で表示させるためのbackground: url();
+            background-position: top;
+            background-size: contain;
+
+            &::before{ // 緑の部分
+                z-index: -1;
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: '';
+                display: inline-block;
+                width: 100%;
+                background: $acsent_G;
+                height: 240px;
+            }
+
+            .c1_wrapper{
+                padding-left: 3rem; //余白で幅をそろえている
+                padding-right: 3rem; //余白で幅をそろえている
+                margin: 0 auto;
+                max-width: 102rem;
+
+
+                .gaiyoo{
+                    margin-bottom: 5rem;
+                    background: #fff;
+                    // box-shadow: 5px#d2d3d5;
+                    box-shadow: 0 0.3rem 1.3rem 0 rgb(182 190 197 / 40%);
+
+    
+                    h2{
+                        position: relative;
+
+    
+    
+                        span{
+                            position: absolute;
+                            z-index: 1;
+                            display: block;
+                            margin: 0 auto;
+                            top: -5.2rem;  // .campaign-circle要素のトップ位置はcampaign-img_1のトップ
+                            left: 0;
+                            right: 0;
+                            
+                            img{
+                                width: 120px;
+                                height: 120px;
+                            }
+                           
+                        }
+    
+                    }
+
+                    article{
+                        padding: 2.3rem 3.3rem 3rem;
+
+                        p{
+                            font-weight: 600;
+                            font-size: 1.4rem;
+                            letter-spacing: 1.2;
+                            line-height: 1.5;
+                        }
+
+                        ul{
+                            padding-left: 20px;
+                            // ※1、※2を先頭に置きながら、list-styleはnone
+                            list-style: none;
+                            padding-left: 1.5em;  
+                            margin-left: 0.5em;
+
+                            li{
+                                letter-spacing: 1.4;
+                                font-size: 1.2rem;
+                                // インデントで一行分1.5em前に出す
+                                text-indent: -1.5em; 
+                                
+                            }
+                        }
+                        
+                        
+                        
+                    }
+    
+                }
+
+                .plan{
+                    margin: 20px;
+
+                    img{
+                        width: 70%;
+                    }
+
+                    article{
+                        background: #fff;
+                        padding: 50px;
+                        
+
+                        .table_1{
+                            border: 2px solid #fff;
+                            width: 100%;
+                            font-size: 1.4rem;
+                            margin-bottom: 40px;
+
+                            tbody{
+                                tr{
+                                    th{
+                                        border: 2px solid #fff;
+                                        background: $acsent_G;
+                                        padding: 1.5rem 2rem;
+                                        text-align: center;
+                                        width: 19%;
+                                        font-weight: 500;
+                                    }
+                                    
+                                    td{
+                                        border: 2px solid #fff;
+                                        background: #f7f7f7;
+                                        padding: 1.5rem 2rem;
+                                        text-align: left;
+                                    }
+                                }
+                            }
+                            
+                        }
+
+                        .table_2,
+                        .table_3{
+                            border: 2px solid #fff;
+                            width: 100%;
+                            font-size: 1.4rem;
+                            margin-bottom: 40px;
+
+                            tbody tr{
+
+                                th{
+                                    border: 2px solid #fff;
+                                    background: $acsent_G;
+                                    padding: 1.5rem 2rem;
+                                    text-align: center;
+                                    width: 19%;
+                                    font-weight: 500;
+                                }
+
+                                td{
+                                    position: relative;
+                                    border: 2px solid #fff;
+                                    background: #f7f7f7;
+                                    width: 27.6%;
+                                    padding: 1.5rem 2rem;
+                                    text-align: left;
+
+                                    span{
+                                        color: $acsent_P;
+                                        font-weight: bold;
+                                    }
+
+                                    // 単純にtableの左から2列目という意味
+                                    // 2番目のtd列という意味ではない
+                                    &:nth-child(2){
+                                        width: 20%;
+                                        text-align: left;
+                                    }
+
+                                    &:nth-child(3),
+                                    &:nth-child(4){
+                                        width: 30%;
+                                    }
+                                }       
+                            }
+                        }
+
+                        // 1行目のtdのbeforeを指定している
+                        .table_2 tbody tr:nth-child(1) td::before{
+                            position: absolute;
+                            top: -7.8rem;
+                            right: 0;
+                            left: 0;
+                            color: #000;
+                            text-align: center;
+                            content: "+";
+                            display: block;
+                            font-weight: 700;
+                        }
+
+                        .table_3 tbody tr:nth-child(1) td::before{
+                            position: absolute;
+                            top: -2.8rem;
+                            right: 0;
+                            left: 0;
+                            color: #000;
+                            text-align: center;
+                            content: "▼";
+                            display: block;
+                        }
+
+                    }
+
+                    .accordion{
+                        .table_2 tbody tr:nth-child(1) td::before{
+                            top: -8.8rem;
+                        }
+
+                        .table_3 tbody tr:nth-child(1) td::before{
+                            top: -3.3rem;
+                        }
+
+                        h2{
+                            background: linear-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(#fff));
+                            button{
+                                border: none;
+                                outline: none;
+                                width: 65%;
+                            }
+                        } 
+                    }
+                }
+            }
+            
+        }
+    }
+}
