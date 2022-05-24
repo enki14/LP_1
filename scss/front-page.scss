@@ -1,0 +1,101 @@
+$acsent_P: #8c3cff;
+$acsent_G: #14eb0a;
+
+
+.drawer--right{
+
+    header div{
+        // drawer.jsのボタンの実態を指定するときは以下のクラス名を使う
+        .drawer-hamburger{
+            position:relative; // 指定にする必要あり
+            // ここではbootstrapのクラス名としてposition-relativeを指定している
+            top: -0.6rem;
+            outline: none;
+            height: 33px;
+            width: 33px;
+
+            // drawer-hamburger-iconは横棒の３本線
+            .drawer-hamburger-icon{
+                // 横棒１本に対しての幅・色を指定
+                background-color: #b4b9be;
+                height: 0.15rem;
+
+                &::before,
+                &::after{
+                    // 横棒１本に対しての幅・色を指定
+                    height: 0.15rem;
+                    background-color: #b4b9be;
+                    display: block;
+                }
+            }
+            
+        }
+
+        .drawer-open{
+            .drawer-nav{
+                width: 500px;
+            
+                .drawer-menu{
+                    display: block;
+                    position: absolute;
+                    top: 10.7rem;
+                    width: 100%;
+            
+                    li{
+                        border-top: 1px solid #3333;
+            
+                        &:nth-child(4){
+                            border-bottom: 1px solid #3333;
+                        }
+            
+                        .drawer-menu-item{
+                            position: relative;
+                            padding: 2.4rem 0 2.5rem 2rem;
+                            color: $acsent_G;
+                            font-size: 1.6rem;
+            
+                            &::after{
+                                position: absolute;
+                                display: block;
+                                content: ">";
+                                right: 5px; 
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .drawer-hamburger{
+                right: 0;
+            }
+            
+        }
+    }
+    
+}
+
+
+
+
+body{
+    background: rgb(241, 240, 245);
+
+    // こちらである程度幅を効かせてあげないとバツ印が右へ移動しなかった
+    
+
+
+    header{
+        z-index: 5;
+
+        div{
+            padding: 2.5rem;
+            z-index: 4;
+            box-shadow: 0 2px 3px 0 rgb(182 190 197 / 40%);
+
+            img{
+                width: 170px;
+            }
+ 
+        }
+    }
+}

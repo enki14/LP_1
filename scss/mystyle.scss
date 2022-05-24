@@ -2,8 +2,27 @@ $acsent_P: #8c3cff;
 $acsent_G: #14eb0a;
 
 
+$layout-widht-inner: 1180px;
+
+// mixinでメディアクエリを管理する
+$breakpoint: (
+    sp: 'screen and (max-width: 767px)',
+    tab: 'screen and (max-width: #{$layout-widht-inner - 1px})',
+    pc: 'screen and (mix-width: #{$layout-widht-inner})'
+);
+
+// $bpは$breakpointのそれぞれのキーを示している
+// map-get関数でマップの値を取得する
+@mixin mq($bp){
+    @media #{map-get($breakpoint, $bp)} {
+        @content;
+    }
+}
+
+
 html{
     font-size: 62.5%;
+    overflow-x:hidden;
 }
 
 body{
@@ -11,47 +30,122 @@ body{
     YuGothic, メイリオ, "Lucida Grande", Osaka, Verdana, "ＭＳ Ｐゴシック", sans-serif;
 }
 
-
-
 section{
     text-align: center;
 }
 
 
+
+.drawer--right{
+
+    header div{
+        // drawer.jsのボタンの実態を指定するときは以下のクラス名を使う
+        .drawer-hamburger{
+            position:relative; // 指定にする必要あり
+            // ここではbootstrapのクラス名としてposition-relativeを指定している
+            top: -0.6rem;
+            outline: none;
+            height: 33px;
+            width: 33px;
+
+            // drawer-hamburger-iconは横棒の３本線
+            // .drawer-hamburger-icon{
+            //     // 横棒１本に対しての幅・色を指定
+            //     background-color: #b4b9be;
+            //     height: 0.15rem;
+
+            //     &::before,
+            //     &::after{
+            //         // 横棒１本に対しての幅・色を指定
+            //         height: 0.15rem;
+            //         background-color: #b4b9be;
+            //         display: block;
+            //     }
+            // }
+            
+        }
+
+        .drawer-open{
+            .drawer-nav{
+                width: 500px;
+            
+                .drawer-menu{
+                    display: block;
+                    position: absolute;
+                    top: 10.7rem;
+                    width: 100%;
+            
+                    li{
+                        border-top: 1px solid #3333;
+            
+                        &:nth-child(4){
+                            border-bottom: 1px solid #3333;
+                        }
+            
+                        .drawer-menu-item{
+                            position: relative;
+                            padding: 2.4rem 0 2.5rem 2rem;
+                            color: $acsent_G;
+                            font-size: 1.6rem;
+            
+                            &::after{
+                                position: absolute;
+                                display: block;
+                                content: ">";
+                                right: 5px; 
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .drawer-hamburger{
+                right: 0;
+            }
+            
+        }
+    }
+    
+}
+
+
+
+
 body{
     background: rgb(241, 240, 245);
+
+    // こちらである程度幅を効かせてあげないとバツ印が右へ移動しなかった
     
+
+
     header{
         z-index: 5;
 
         div{
-            padding: 1.5rem;
+            padding: 2.5rem;
             z-index: 4;
             box-shadow: 0 2px 3px 0 rgb(182 190 197 / 40%);
 
             img{
                 width: 170px;
             }
+ 
         }
          
 
         .btn-aria{
-            padding: 4rem 0; 
+            padding: 40px 0; 
             background: #f1f0f5;
             
-
-        
-
-            a{
-                height: 4rem;
-                font-size: 1.6rem;
-                line-height: 4rem;
+            .btn-p{
+                padding: 2.1rem 0;
+                font-size: 2.1rem;
                 background: $acsent_P;
                 margin: 0 auto;
                 border-radius: 3.5rem;
                 display: block;
                 position: relative;
-                max-width: 33rem;
+                width: 560px;
                 margin: 0 auto;
                 box-shadow: 0 0.3rem 0 0 #6d1fdc;
                 color: #fff;
@@ -59,6 +153,14 @@ body{
                 letter-spacing: 0.03em;
                 transition: opacity .4s;
                 text-decoration: none;
+
+                &::after{
+                    content: '\f105';
+                    font-family: FontAwesome;
+                    position: absolute;
+                    right: 3.5rem;
+                    top: 2.1rem;
+                }
             }
          
             
@@ -70,26 +172,30 @@ body{
 
         .content-header{
             .header-img{
-                height: 170px;
+                height: 203px;
                 
                 
                 h2{
                     padding-left: 3rem;
                     padding-right: 3rem;
                     margin: 0 auto;
-                    width: 1042px;
+                    height: 203px;
+                    max-width: 102rem;
 
                     img{
                         object-fit: cover;
-                        height: 205px;
-                        // width: auto;
+                        height: auto;
+                        max-width: 100%;
+                        width: 960px;
+                        float: center;
+                        
                     }
                 }
             }
 
             
             section{
-                padding: 2rem 0 4rem; // 上部の.header-img要素の白帯をちょうど良い大きさに変更している
+                padding: 7.4rem 0 5rem; // 上部の.header-img要素の白帯をちょうど良い大きさに変更している
                 background: #f1f0f5; // paddingとともに色を付けて画像のはみ出した部分を再現している
 
                 h3{
@@ -118,14 +224,15 @@ body{
 
         }
 
-        #campaign-1{
-            padding-left: 5rem;
-            padding-right: 5rem;
-            padding-top: 8.6em; // .gaiyoo要素をちょうど良い位置に下げている
+        .campaign{
+            padding-left: 4.7rem;
+            padding-right: 4.7rem;
+            padding-top: 12.6em; // .gaiyoo要素をちょうど良い位置に下げている
             position: relative;
             background: url('../images/l-campaign01_bdrimg.png') no-repeat;  // 緑の部分とをくっつけた状態で表示させるためのbackground: url();
             background-position: top;
             background-size: contain;
+            
 
             &::before{ // 緑の部分
                 z-index: -1;
@@ -139,17 +246,14 @@ body{
                 height: 240px;
             }
 
-            .c1_wrapper{
-                padding-left: 3rem; //余白で幅をそろえている
-                padding-right: 3rem; //余白で幅をそろえている
-                margin: 0 auto;
+            .wrapper{
+                margin: 0 auto; //余白で幅をそろえている
                 max-width: 102rem;
 
 
                 .gaiyoo{
                     margin-bottom: 5rem;
                     background: #fff;
-                    // box-shadow: 5px#d2d3d5;
                     box-shadow: 0 0.3rem 1.3rem 0 rgb(182 190 197 / 40%);
 
     
@@ -163,7 +267,7 @@ body{
                             z-index: 1;
                             display: block;
                             margin: 0 auto;
-                            top: -5.2rem;  // .campaign-circle要素のトップ位置はcampaign-img_1のトップ
+                            top: -8.2rem;  // .campaign-circle要素のトップ位置はcampaign-img_1のトップ
                             left: 0;
                             right: 0;
                             
@@ -187,10 +291,9 @@ body{
                         }
 
                         ul{
-                            padding-left: 20px;
+                            padding-left: 2em;
                             // ※1、※2を先頭に置きながら、list-styleはnone
-                            list-style: none;
-                            padding-left: 1.5em;  
+                            list-style: none;  
                             margin-left: 0.5em;
 
                             li{
@@ -209,20 +312,38 @@ body{
                 }
 
                 .plan{
-                    margin: 20px;
+                    margin: 20px 0;
 
                     img{
                         width: 70%;
+                    }
+
+                    .scroll_add{
+                        // y軸とx軸を一括で指定している
+                        // overflow-x, overflow-yはここでは効かない
+                        overflow: scroll hidden;
                     }
 
                     article{
                         background: #fff;
                         padding: 50px;
                         
+                        p{
+                            font-size: 1.4rem;
+                            letter-spacing: 1.4;
+
+                            span{
+                                color: $acsent_G;
+                            }
+                        }
+
+                        .astrisk{
+                            font-size: 1.2rem;
+                        }
 
                         .table_1{
                             border: 2px solid #fff;
-                            width: 100%;
+                            width: 860px;
                             font-size: 1.4rem;
                             margin-bottom: 40px;
 
@@ -233,7 +354,7 @@ body{
                                         background: $acsent_G;
                                         padding: 1.5rem 2rem;
                                         text-align: center;
-                                        width: 19%;
+                                        width: 21%;
                                         font-weight: 500;
                                     }
                                     
@@ -251,7 +372,7 @@ body{
                         .table_2,
                         .table_3{
                             border: 2px solid #fff;
-                            width: 100%;
+                            width: 860px;
                             font-size: 1.4rem;
                             margin-bottom: 40px;
 
@@ -262,7 +383,7 @@ body{
                                     background: $acsent_G;
                                     padding: 1.5rem 2rem;
                                     text-align: center;
-                                    width: 19%;
+                                    width: 21%;
                                     font-weight: 500;
                                 }
 
@@ -270,7 +391,7 @@ body{
                                     position: relative;
                                     border: 2px solid #fff;
                                     background: #f7f7f7;
-                                    width: 27.6%;
+                                    width: 27%;
                                     padding: 1.5rem 2rem;
                                     text-align: left;
 
@@ -282,7 +403,7 @@ body{
                                     // 単純にtableの左から2列目という意味
                                     // 2番目のtd列という意味ではない
                                     &:nth-child(2){
-                                        width: 20%;
+                                        width: 22%;
                                         text-align: left;
                                     }
 
@@ -309,7 +430,7 @@ body{
 
                         .table_3 tbody tr:nth-child(1) td::before{
                             position: absolute;
-                            top: -2.8rem;
+                            top: -3.2rem;
                             right: 0;
                             left: 0;
                             color: #000;
@@ -321,26 +442,896 @@ body{
                     }
 
                     .accordion{
-                        .table_2 tbody tr:nth-child(1) td::before{
-                            top: -8.8rem;
-                        }
+                        margin-bottom: 2rem;
 
-                        .table_3 tbody tr:nth-child(1) td::before{
-                            top: -3.3rem;
-                        }
 
+                        article{
+                            padding-bottom: 5px;
+                            overflow: hidden;
+                           
+
+                            &:nth-child(1){
+                                overflow-x: scroll;
+                            }
+                            
+                            .table_2 tbody tr:nth-child(1) td::before{
+                                top: -8.8rem;
+                            }
+    
+                            .table_3 tbody tr:nth-child(1) td::before{
+                                top: -3.3rem;
+                            }
+
+                        }
+    
                         h2{
-                            background: linear-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(#fff));
+                            // 最初の表示はlinear-gradientの設定
+                            // 下へ、透明からパーセントの割合で徐々に白く（65%で完全に白くなる）
+                            background: linear-gradient(180deg, rgba(255,255,255,0) 0%, white 50%, #fff 100%);
+                            
+
                             button{
+                                // 最初の表示はlinear-gradientの設定
+                                background: linear-gradient(to bottom, rgba(0,0,0,0) 35%, #fff 65%);
                                 border: none;
                                 outline: none;
                                 width: 65%;
+                                cursor: pointer;
                             }
                         } 
                     }
+
+                    .price-list{
+                        padding-left: 20px;
+                        list-style: none;
+                        padding-left: 1.5em;  
+                        margin-left: 0.5em;
+
+                        li{
+                            text-align: left;
+                            line-height: 1.8;
+                            letter-spacing: 2.3;
+                            font-size: 1.2rem;
+                            // インデントで一行分1.5em前に出す
+                            text-indent: -1.5em; 
+
+                            ul{
+                                padding-left: 20px;
+                                list-style: none;
+                                padding-left: 1.5em;  
+                                margin-left: 0.5em;
+
+                                li{
+                                    text-align: left;
+                                    line-height: 1.8;
+                                    letter-spacing: 2.3;
+                                    font-size: 1.2rem;
+                                    // インデントで一行分1.5em前に出す
+                                    text-indent: -1.5em; 
+                                }
+                            }
+                        }
+                    }
+
+                    .detail-btn button{
+                        border: 2px solid $acsent_P;
+                        border-radius: 3.5rem;
+                        padding: 1.5rem 8.2rem;
+                        background: #fff;
+                        transition: opacity .4;
+                        position: relative;
+                        width: 530px;
+
+                        &::after{
+                            position: absolute;
+                            top: 1.2rem;
+                            right: 2rem;
+                            content:"\f138";
+                            font-family: FontAwesome;
+                            font-size: 2.5rem;
+                            color: $acsent_P;
+                        }
+
+                        &:hover{
+                            opacity: .6;
+                        }
+
+                        a{
+                            text-decoration: none;
+                            color: $acsent_P;
+                        }
+                    }
+
                 }
+
+                #plan_oth{
+                    background: #fff;
+                    margin-bottom: 50px;
+                    padding-bottom: 20px;
+
+                    article{
+                        padding-top: 2rem;
+                        padding-bottom: 2rem;
+
+                        p{
+                            margin-bottom: 0.7rem;
+                        }
+                    }
+                }
+
+                .benefits{
+                    padding: 50px;
+                    background: #fff;
+                    margin-bottom: 100px;
+
+                    p{
+                        font-size: 1.4rem;
+                        letter-spacing: 1.4;
+                        line-height: 1.2;
+                    }
+
+                    .seventeen-img{
+                        img{
+                            width: 60%;
+                        }
+
+                        ul{
+                            margin-top: 2rem;
+                            margin-bottom: 3rem;
+
+                            li{
+                                font-size: 1.2rem;
+                                list-style: none;
+                            }
+                        } 
+                    }
+
+                    .tokuten-image{
+                        background: #f1f0f5;
+                        padding: 4rem 8rem;
+
+                        ul{
+                            list-style: none;
+                            padding-left: 1.5em;  
+                            margin-left: 0.5em;
+
+                            li{
+                                line-height: 1.8;
+                                font-size: 1.4rem;
+                                text-indent: -3em;
+                                
+                                span .circle-num{
+                                    width: 15px;
+                                }
+                            }
+                        }
+                    }
+
+                    .pre-note{
+                        font-size: 1.2rem;
+                    }
+
+                    .note-matters{
+                        ul{
+                            list-style: none;
+                            padding-left: 0;
+
+                            li{
+                                line-height: 1.8;
+                                font-size: 1.2rem;
+                            }
+                        }
+
+                        .noteList_2{
+                            padding-left: 1.5em;
+                            margin-left: 0.5em;
+                            list-style: none;
+
+                            li{
+                                text-indent: -1em;
+                                letter-spacing: 0.02em;
+
+                                ul{
+                                    list-style: none;
+                                    padding-left: 1.5em;
+                                    margin-left: 0.5em;
+
+                                    li{
+                                        text-indent: -1em;
+                                        letter-spacing: 0.02em;
+                                        position: relative;
+
+                                        &::before{
+                                            position: absolute;
+                                            border-left: 4px solid #f1f0f5;
+                                            left: -1em;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+    
+                        p{
+                            
+
+                            a{
+                                text-decoration: underline;
+                                color:#000;
+                                font-size: 1.2rem;
+
+                            }
+
+                            .fa-circle-chevron-right{
+                                padding-right: 3px;
+                                text-decoration: none;
+                                color: #000;
+                            }
+                        }
+                    }
+
+                    .bene_T{
+
+                        .table_2{
+                            border: 2px solid #fff;
+                            width: 100%;
+                            font-size: 1.4rem;
+                            margin-bottom: 1.8rem;
+
+                            tbody tr{
+
+                                th{
+                                    border: 2px solid #fff;
+                                    background: $acsent_G;
+                                    padding: 1.5rem 2rem;
+                                    text-align: center;
+                                    width: 23%;
+                                    font-weight: 500;
+                                }
+
+                                td{
+                                    position: relative;
+                                    border: 2px solid #fff;
+                                    background: #f7f7f7;
+                                    padding: 1.5rem 2rem;
+
+                                    span{
+                                        color: $acsent_P;
+                                        font-weight: bold;
+                                    }
+
+                                    &:nth-child(2){
+                                        width: 45%;
+
+                                    }
+
+                                    &:nth-child(3),
+                                    &:nth-child(4){
+                                        width: 32%;
+                                    }
+                                }       
+                            }
+                        }
+
+
+                        // 付与特典時期
+                        .table_4{
+                            border: 2px solid #fff;
+                            width: 100%;
+                            font-size: 1.4rem;
+                            margin-bottom: 0.5rem;
+
+                            tbody tr{
+
+                                th{
+                                    border: 2px solid #fff;
+                                    text-align: center;
+                                    color: #fff;
+                                }
+
+                                td{
+                                    // position: relative;
+                                    border: 2px solid #fff;
+                                    background: #f7f7f7;
+                                    text-align: center;
+                                    color: rgb(0,0,0);
+
+                                    &:nth-child(1){
+                                        width: 40%;
+
+                                    }
+
+                                }       
+                            }
+                        }
+
+                        p{
+                            font-size: 1.8rem;
+                            margin-bottom: 1.8rem;
+                        }
+                    }
+
+                    .bene_list{
+                        list-style: none;
+                        padding-left: 0;
+
+                        li{
+                            line-height: 1.7;
+                            font-size: 1.2rem;
+                            text-align: left;
+                            letter-spacing: 1.7;
+
+                            ul{
+                                list-style: none;
+                                padding-left: 1rem;
+
+                                li{
+                                    line-height: 1.7;
+                                    font-size: 1.2rem;
+                                    text-align: left;
+                                    letter-spacing: 1.7;
+                                }
+                            }
+                        }
+                    }
+
+                    .conditions{
+                        list-style: none;
+                        padding-left: 0;
+                        margin-left: 0.5rem;
+                        padding-left: 0.5rem;
+
+                        .condi_li{
+                            line-height: 2;
+                            font-size: 1.5rem;
+                            text-align: left;
+                            letter-spacing: 1.7;
+                            text-indent: -1.9rem;
+
+                            &::before{
+                                content: "●";
+                                height: 1rem;
+                                width: 1rem;
+                                color: $acsent_G;
+                            }
+
+                            ul{
+                                list-style: none;
+                                padding-left: 0;
+
+                                li{
+                                    line-height: 2;
+                                    font-size: 1.1rem;
+                                    font-weight: 500;
+                                    text-align: left;
+                                    letter-spacing: 1.7;
+                                    // text-indentとmargin-leftの数値を同じにして、リストの折り返し部分を揃える
+                                    text-indent: 0.3rem;
+                                    color: #333;
+                                }
+                            }
+                        }
+
+                    }
+
+                    .slide_box{
+                        border: 3px solid $acsent_G;
+                        padding-top: 3rem;
+                        padding-bottom: 3rem;
+                        position: relative;
+                        overflow: hidden;
+                        height: 65rem;
+
+                        &::before{
+                            content: '';
+                            position: absolute;
+                            top: 40%;
+                            left: 0;
+                            background: url('../images/slider_arrow.png');
+                            background-size: 100%;
+                            background-repeat: no-repeat;
+                            z-index: 4;
+                            display: inline-block;
+                            width: 23px;
+                            height: 44px;
+                        }
+
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            top: 40%;
+                            right: 0;
+                            background: url('../images/slider_arrow.png');
+                            background-size: 100%;
+                            background-repeat: no-repeat;
+                            z-index: 4;
+                            display: inline-block;
+                            width: 23px;
+                            height: 44px;
+                            transform: rotate(180deg);
+                        }
+
+
+                        .carousel{
+
+                            // .metaslider{
+
+                                // #metaslider_container_33{
+                                //     left: -80px;
+                                //     position: absolute;
+
+                                // }
+
+                            // }
+    
+
+                                /*画像に余白をつけたい場合*/
+                                .flexslider .slides{
+                                    transform: translate3d(-650px, 0, 0);
+
+                                    li{
+                                        margin: 0 3rem;
+
+                                        img{
+                                            width: 95%;
+                                        }
+
+                                        .caption-wrap{
+                                            position: relative; 
+                                            background: #fff; 
+                                            color: #333; 
+                                            margin: 1rem 0;
+                                            opacity: 1;
+
+                                            .caption{
+                                                padding-left: 1.5em;
+                                                padding-right: 0;
+                                                margin-left: 2em;
+
+                                                p{
+                                                    font-size: 1.2rem;
+                                                    text-indent: -1em;
+                                                    text-align: left;
+                                                    line-height: 1.75;
+
+                                                }
+
+                                                .btn-aria{
+                                                    width: 60%;
+                                                
+                                                    
+                                                    a{
+                                                        height: 3rem;
+                                                        font-size: 1.6rem;
+                                                        line-height: 3rem;
+                                                        background: #8c3cff;
+                                                        border-radius: 3.5rem;
+                                                        display: block;
+                                                        position: relative;
+                                                        box-shadow: 0 0.3rem 0 0 #6d1fdc;
+                                                        color: #fff;
+                                                        font-weight: 700;
+                                                        letter-spacing: 0.03em;
+                                                        text-decoration: none;
+                                                        transition: opacity .4s;
+                                                        z-index: 4;
+                                                    }
+                                                
+                                                    
+                                                    
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .slide-39{
+                                        .caption-wrap .caption{
+                                            padding-left: 0;
+                                            margin-left: 0;
+
+                                            .btn-aria{
+                                                display: block;
+                                                margin: 0 auto;
+
+                                                &:hover{
+                                                    opacity: .6s;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .flex-direction-nav{
+                                        li{
+                                            
+                                        } 
+                                    }
+                                } 
+                                
+                            // }
+                            
+                        }
+                    }
+                }
+
             }
             
+        }
+
+    }
+
+    .content_2{
+        position: relative;
+        padding-bottom: 2rem;
+
+        &::before{
+            z-index: -1;
+            position: absolute;
+
+            content: '';
+            width: 140%;
+            background: url('../images/pc/l-point_bg_02_pc.png');
+            background-size: cover;
+            height: 100%;
+        }
+
+        .white-band{
+            overflow: auto;
+            
+        }
+        // 「選べる2つの料金プラン」部分
+        // .campaignに似た要素
+        .point-eria{
+            padding-left: 4.7rem;
+            padding-right: 4.7rem;
+            padding-top: 6.6em; 
+            position: relative;
+
+            &::before{ // 緑の部分
+                z-index: -1;
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: '';
+                display: inline-block;
+                width: 100%;
+                background: #14cd0a;
+                height: 240px;
+            }
+
+            .P_wrapper{
+                margin: 0 auto; //余白で幅をそろえている
+                max-width: 102rem;
+                display: block;
+
+                h3{
+                    position: relative;
+
+                    &::before{
+                        position: absolute;
+                        background: url('../images/pc/l-point_plan_ttl_01_icn_pc.png');
+                        display: block;
+                        width: 12rem;
+                        height: 12rem;
+                        top: -2rem;
+                        left: 5rem;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        content: '';  // backgroundを指定していても、content: ''; と明示していなければ画像は表示されない
+                    }
+                }
+
+                .point_plan{
+                    padding: 7rem 5rem 4rem;
+                    border-radius: 20px;
+                    background: #fff;
+                    margin-bottom: 8rem;
+                    box-shadow: 0 0.3rem 1.3rem 0 rgb(182 190 197 / 40%);
+
+                    p{
+                        font-size: 1.8rem;
+                        letter-spacing: 1.4;
+                        line-height: 1.4;
+                        font-weight: bold;
+                    }
+
+                    ul{
+                        list-style: none;
+                        padding-left: 0;
+                        font-size: 1.2rem;
+                        line-height: 1.6;
+                    }
+                    
+                    .detail-btn button{
+                        border: 2px solid $acsent_P;
+                        border-radius: 3.5rem;
+                        padding: 1.5rem 8.2rem;
+                        background: #fff;
+                        transition: opacity .4;
+                        position: relative;
+                        width: 530px;
+
+                        &::after{
+                            position: absolute;
+                            top: 1.2rem;
+                            right: 2rem;
+                            content:"\f138";
+                            font-family: FontAwesome;
+                            font-size: 2.5rem;
+                            color: $acsent_P;
+                        }
+
+                        &:hover{
+                            opacity: .6;
+                        }
+
+                        a{
+                            text-decoration: none;
+                            color: $acsent_P;
+                        }
+                    }
+                    
+                }
+
+            }
+        }
+
+        #point_2{
+            .P_wrapper{
+                h3{
+                    
+                    &::before{
+                        background: url('../images/pc/l-point_tel_ttl_01_icn_pc.png');
+                        background-size: contain;
+                    }
+                }
+
+                p{
+                    line-height: 1.7;
+                }
+
+                .point_plan{
+                    ul{
+                        padding-left: 1em;
+                        list-style: none;  
+                        
+
+                        li{
+                            letter-spacing: 1.4;
+                            font-size: 1.2rem;                 
+                            text-indent: -1em; 
+                            
+                        }
+                    }
+                }
+            }
+        }
+
+        #point_3{
+            .P_wrapper{
+                h3{
+                    
+                    &::before{
+                        background: url('../images/pc/l-point_connect_ttl_01_icn_pc.png');
+                        background-size: contain;
+                    }
+                }
+
+                .point_plan{
+                    p{
+                        letter-spacing: 1;
+                    }
+
+                    div img{
+                        width: 90%;
+                    }
+
+                    ul li{
+                        color:#222;
+
+                        a{
+                            color:#222;
+                            text-decoration: underline;
+                        }
+                    } 
+                }
+            }
+        }
+    }
+
+    .aco-eria{
+        padding: 6.6em 4.7rem 1rem; 
+        position: relative;
+
+        .aco_wrraper{
+            margin: 0 auto; //余白で幅をそろえている
+            max-width: 102rem;
+            display: block;   
+
+            h2{
+                img{
+                    width: 35%;
+                }
+            }
+
+            .aco-item{
+                border: 1px solid $acsent_G;
+                border-radius: 10px;
+                overflow: hidden;
+                
+                
+
+                .aco-header{
+                   
+                    margin-bottom: 0;
+
+                    .aco-btn{
+                        position: relative;
+                        cursor: pointer;
+                        font-size: 1.4rem;
+                        font-weight: 700;
+                        color: #00b900;
+                        border: none;
+                        outline: none;
+                        padding: 15px 15px 15px 35px;
+                        background: #dffbdd !important;
+
+                        &::before{
+                            content: '';
+                            background: url('../images/l-faq_icn_01.png');
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            position: absolute;
+                            left: 15px;
+                            top: 37%;
+                            display: inline-block;
+                            width: 1.4rem;
+                            height: 1.4rem;
+                        }
+
+                        &::after{
+                            content: '+';
+                            position: absolute;
+                            right: 15px;
+                            top: 10%;
+                            display: inline-block;
+                            color: #00b900;
+                            font-size: 2.5rem;
+                        }
+
+                        // .collapsed{
+                        //     &::after{
+                        //         content: '-';
+                        //         position: absolute;
+                        //         right: 15px;
+                        //         top: 10%;
+                        //         display: inline-block;
+                        //         color: #00b900;
+                        //         font-size: 2.5rem;
+                        //     }
+                        // }
+                        
+                    }
+
+                }
+
+                .aco-collapse{
+                    
+                    .aco-body{
+                        position: relative;
+                        background: #fff;
+                        font-size: 1.4rem;
+                        line-height: 1.7;
+                        padding: 15px 15px 15px 35px;
+
+                        &::before{
+                            content: '';
+                            background: url('../images/l-faq_icn_02.png');
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            position: absolute;
+                            left: 15px;
+                            top: 15px;
+                            display: inline-block;
+                            width: 1.4rem;
+                            height: 1.4rem;
+                        }
+
+                        
+                    }
+
+                    
+                }
+                
+            }
+
+            .qa_list{
+                text-decoration: underline;
+                font-size: 1.2rem;
+                padding-left: 2rem;
+                color: #000;
+
+                &::before{
+                    position: absolute;
+                    display: inline-block;
+                    content: '\f138';
+                    font-family: FontAwesome;
+                    left: 0.5rem;
+                    color: #000;
+                    text-decoration: none;
+                    width: 1.2rem;
+                }
+            }
+
+
+            .sns_eria{
+                padding: 10rem 20rem;
+
+                p{
+                    font-size: 1.5rem;
+                    color: #00b900;
+                    font-weight: 700;
+                    letter-spacing: 1.2;
+                }
+
+                div .twitter img,
+                div .line_button img{
+                    width: 66px;
+                }
+
+
+                .linemo_logo{
+                    margin-top: 6rem;
+
+
+                    img{
+                        width: 163px;
+                    }
+                } 
+            }
+
+            .crumb_eria{
+
+                #breadcrumbs{
+                    margin-bottom: 0;
+
+                    span span{
+                        a{
+                            text-decoration: underline;
+                            color: #6f2fff;
+                            font-size: 1.2rem;
+    
+                        }
+    
+                        span{
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+            }
+
+        }
+        
+    }
+
+    footer{
+        background: #b4b9be;
+        padding-top: 2rem;
+
+        div{
+
+            a{
+                font-size: 1.2rem;
+                padding: 0.3rem 1.7rem 0.3rem;
+                border-left: 1px solid #fff;
+                float: center;
+    
+                &:nth-child(3){
+                    border-right: 1px solid #fff;
+                }
+            }
+        }
+
+        p{
+            font-size: 1.2rem;
         }
     }
 }

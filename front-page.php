@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <?php if(is_front_page()): ?>
+        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/front-page.css" />
+    <?php endif; ?>
+    <!-- drawer.css -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css"> -->
     <title>Document</title>
-    <meta name="description" content="サイトキャプションを入力">
-    <meta name="keywords" content="サイトキーワードを,で区切って入力">
+    
+    <!-- jquery & iScroll -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script> -->
+    <!-- drawer.js -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
     <?php wp_head(); ?>
 </head>
-<!-- drawer.jsのclass名を追加「 drawer, drawer--right 」 -->
-<!-- body_classにクラス名を追加するときは、配列として指定する -->
 <body <?php body_class(['drawer', 'drawer--right']); ?>>
     <header class="w-100"  role="banner">
         <div class="d-flex justify-content-between position-fixed w-100 bg-white">
@@ -18,14 +27,11 @@
             alt="linemo-logo" />
             <!-- drawer.jsのクラス名は固有のもの -->
             <button type="button" class="drawer-toggle drawer-hamburger py-0">
-                <!-- <span class="sr-only">toggle navigation</span>
-                <span class="drawer-hamburger-icon"></span> -->
-                <i class="fa fa-bars" aria-hidden="true"></i>
+                <span class="sr-only">toggle navigation</span>
+                <span class="drawer-hamburger-icon"></span>
             </button>
             <nav class="drawer-nav" role="navigation">
-                <!-- メニューの読み込み -->
-	            <?php wp_nav_menu( array( 'theme_location' => 'my-drawer', 'menu_class' => 'drawer-menu', 'container' => false, 'depth' => 1 ) ); ?>
-                <!-- <ul class="drawer-menu">
+                <ul class="drawer-menu">
                     <li>
                         <a class="drawer-menu-item font-weight-bold" href="#">
                             通話オプション割引キャンペーン
@@ -47,11 +53,18 @@
                             よくある質問
                         </a>
                     </li>
-                </ul> -->
+                </ul>
             </nav>
         </div>
-        <img src="<?php echo get_template_directory_uri().'/images/pc/l-kv_img_pc.jpg' ?>" alt="linemo-header" class="linemo-header w-100" />
-        <div class="btn-aria">
-            <a href="#" class="text-center btn-p">今すぐ申し込む</a>
-        </div>
     </header>
+    <div class="d-block">
+        <h1>ここはトップページです</h1>
+    </div>
+    <script>
+        jQuery(document).ready(function(){
+            jQuery('.drawer').drawer();  
+        });
+    </script>
+    <?php wp_footer(); ?>
+</body>
+</html>
