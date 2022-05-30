@@ -387,13 +387,37 @@
                         </li>
                     </ul>
                     <div class="slide_box">
-                        <h2 class="mb-3">
+                        <h2>
                             <img src="<?php echo get_template_directory_uri(); ?>/images/l-campaign02_howto_ttl_img.png" 
                             alt="LINEの連携方法">
                         </h2>
-                        <div class="carousel">
-                            <?php echo do_shortcode('[metaslider id="33"]'); ?>
-                        </div>
+                        <ul class= "slickSlider pl-0">
+                            <li>
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/slide1.png" 
+                                alt="スライド1">
+                                <div class="btn-aria">
+                                    <a href="#" class="text-center btn-p">友達追加する&nbsp;<i class="fa-solid fa-chevron-right"></i></a>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/slide2.png" 
+                                alt="スライド2">
+                            </li>
+                            <li>
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/slide3.png" 
+                                alt="スライド3">
+                                <p class="w-100">※必ず「Wi-Fi」利用をOFFにしておこなってください。</p>
+                            </li>
+                            <li>
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/slide4.png" 
+                                alt="スライド4">
+                            </li>
+                            <li>
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/slide5.png" 
+                                alt="スライド5">
+                                <p class="w-100">※LINEアカウントを解除したい場合は「My Menuとの連携はこちら」を選択し、次の画面にて「アカウント連携を解除する」を選択してください。</p>
+                            </li>
+                        </ul> 
                     </div>
                     <h4 class="my-5">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign02_period_content_ttl_img_pc.png" 

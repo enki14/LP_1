@@ -5,6 +5,17 @@
             <a href="#" class="col-5 text-white">情報セキュリティーポリシー</a>
         </div>
         <p class="text-center w-100 text-white">Copyright © SoftBank All rights reserved.</p>
+        <div class="fxd_aria fixed-bottom">
+            <button class="top_btn w-100 text-right">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/sp/pagetop_btn_sp.png" 
+                class="" alt="ページトップボタン">
+            </button>
+            <div class="apl_btn text-center w-100">
+                <button class="w-100">
+                    <a href="#" class="text-center text-white">今すぐ申し込む</a>
+                </button>
+            </div>
+        </div>
     </footer>
     <script>
         jQuery(function(){
@@ -30,106 +41,44 @@
 
         jQuery(document).ready(function(){
             $('.drawer').drawer();  
-            // jQuery('.drawer-hamburger').css({
-            //     'top': '-0.6rem',
-            //     'outline': 'none',
-            //     'height': '33px',
-            //     'width': '33px'
-            // });  
-            
-            // let hamIcon = jQuery('.drawer-hamburger-icon');
-            // hamIcon.css({
-            //     'background-color': '#b4b9be',
-            //     'height': '0.15rem'
-            // });
-            // hamIcon.css({
-            //     'background-color': '#b4b9be',
-            //     'height': '0.15rem'
 
-            // });
-
-            // let css = `
-            //     .drawer-hamburger-icon::before,
-            //     .drawer-hamburger-icon::after{
-            //         // 横棒１本に対しての幅・色を指定
-            //         height: 0.15rem;
-            //         background-color: #b4b9be;
-            //         display: block;
-            //     }
-
-            // `;
-
-            // let style = jQuery('<style></style>');
-            // style.text(css);
-            // jQuery('body').append(style);
+            $('.drawer').on('drawer.opened', function(){
+                $('header').css('background-color', 'rgba(0,0,0,0.5)');
+            });
         });
 
-        // jQuery('.drawer').on('drawer.opened', function(){
-        //     let drawerOpen = jQuery('.drawer--right.drawer-open');
-        //     let hamIcon = jQuery('.drawer-hamburger-icon');
-        //     let draBurger = drawerOpen.find('.drawer-hamburger');
-        //     let draNav = drawerOpen.find('.drawer-nav');
-        //     let draMenu = draNav.find('.drawer-menu');
-        //     let draMenu_li = draMenu.find('li');
-        //     let draM_item = draMenu_li.find('.drawer-menu-item');
-        //     draMenu.css({
-        //         'display': 'block',
-        //         'position': 'absolute',
-        //         'top': '10.7rem',
-        //         'width': '100%'
-        //     });
-        //     draMenu_li.css('border-top','1px solid #3333');
-        //     draM_item.css({
-        //         'position': 'relative',
-        //         'padding': '2.4rem 0 2.5rem 2rem',
-        //         'color': '#14eb0a',
-        //         'font-size': '1.6rem'
-        //     });
-        //     draBurger.css({'right':'0'});
-        //     draNav.css({'width':'500px'});
-        //     // hamIcon.css('opacity','0');
+        let template = "<?php echo get_template_directory_uri(); ?>";
+        jQuery(".slickSlider").slick({
+            dots:true,
+            prevArrow: '<img src="'+ template +'/images/slider_arrow.png" alt="前へ戻るボタン" class="prev_icon">',
+            nextArrow: '<img src="'+ template +'/images/slider_arrow.png" alt="次へ進むボタン" class="next_icon">',
+            autoplay: false,
+            autoplaySpeed: 1000,
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            centerMode: true,
+            centerPadding: '150px',
+            focusOnSelect: true
+        });
 
-        //     let css = `
-        //         .drawer-menu li:nth-child(4){
-        //             border-bottom: 1px solid #3333;
-        //         }
 
-        //         .drawer-menu-item::after{
-        //             position: absolute;
-        //             display: block;
-        //             content: ">";
-        //             right: 5px; 
-        //         }
-        //     `;
+        jQuery(function(){
+            let fxdAria = jQuery('.fxd_aria');
+            let btnAria = jQuery('.btn_aria').top; 
+            let footer = jQuery('footer').top;
+            // fxdAria.hide();
 
-        //     let style = jQuery('<style></style>');
-        //     style.text(css);
-        //     jQuery('body').append(style);
-        // });
-        
-        // jQuery(document).on('shown.collapse', '.collapse', function(){
-
-        //     // 疑似要素は jQuery('.aco-btn::after') というようには指定できないので、下記のようにテキスト化する
-        //     let css = `
-        //         .aco-btn::after{
-        //             content: '-';
-        //             position: absolute;
-        //             right: 15px;
-        //             top: 10%;
-        //             display: inline-block;
-        //             color: #00b900;
-        //             font-size: 2.5rem;
-        //         }
-        //     `;
-
-        //     let style = jQuery('<style></style>');
-        //     style.text(css);
-        //     jQuery('body').append(style);
-
-        // });
+            jQuery(window).scroll(function(){
+                if(jQuery(this).scrollTop() > btnAria){
+                    fxdAria.css('display','block');
+                }else if(jQuery(this).scrollTop() > footer){
+                    fxdAria.css('display','none');
+                }
+            });
+        });
 
     </script>
     <?php wp_footer(); ?>
-    
 </body>
 </html>

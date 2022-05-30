@@ -36,100 +36,20 @@ section{
 
 
 
-.drawer--right{
-
-    header div{
-        // drawer.jsのボタンの実態を指定するときは以下のクラス名を使う
-        .drawer-hamburger{
-            position:relative; // 指定にする必要あり
-            // ここではbootstrapのクラス名としてposition-relativeを指定している
-            top: -0.6rem;
-            outline: none;
-            height: 33px;
-            width: 33px;
-
-            // drawer-hamburger-iconは横棒の３本線
-            // .drawer-hamburger-icon{
-            //     // 横棒１本に対しての幅・色を指定
-            //     background-color: #b4b9be;
-            //     height: 0.15rem;
-
-            //     &::before,
-            //     &::after{
-            //         // 横棒１本に対しての幅・色を指定
-            //         height: 0.15rem;
-            //         background-color: #b4b9be;
-            //         display: block;
-            //     }
-            // }
-            
-        }
-
-        .drawer-open{
-            .drawer-nav{
-                width: 500px;
-            
-                .drawer-menu{
-                    display: block;
-                    position: absolute;
-                    top: 10.7rem;
-                    width: 100%;
-            
-                    li{
-                        border-top: 1px solid #3333;
-            
-                        &:nth-child(4){
-                            border-bottom: 1px solid #3333;
-                        }
-            
-                        .drawer-menu-item{
-                            position: relative;
-                            padding: 2.4rem 0 2.5rem 2rem;
-                            color: $acsent_G;
-                            font-size: 1.6rem;
-            
-                            &::after{
-                                position: absolute;
-                                display: block;
-                                content: ">";
-                                right: 5px; 
-                            }
-                        }
-                    }
-                }
-            }
-            
-            .drawer-hamburger{
-                right: 0;
-            }
-            
-        }
-    }
-    
-}
-
-
-
-
 body{
     background: rgb(241, 240, 245);
-
-    // こちらである程度幅を効かせてあげないとバツ印が右へ移動しなかった
     
 
-
     header{
-        z-index: 5;
 
         div{
             padding: 2.5rem;
-            z-index: 4;
+            z-index: 2;
             box-shadow: 0 2px 3px 0 rgb(182 190 197 / 40%);
 
             img{
                 width: 170px;
             }
- 
         }
          
 
@@ -176,8 +96,8 @@ body{
                 
                 
                 h2{
-                    padding-left: 3rem;
-                    padding-right: 3rem;
+                    padding-left: 4.7rem;
+                    padding-right: 4.7rem;
                     margin: 0 auto;
                     height: 203px;
                     max-width: 102rem;
@@ -819,136 +739,17 @@ body{
                         padding-bottom: 3rem;
                         position: relative;
                         overflow: hidden;
-                        height: 65rem;
+                        height: 57rem;
 
-                        &::before{
-                            content: '';
-                            position: absolute;
-                            top: 40%;
-                            left: 0;
-                            background: url('../images/slider_arrow.png');
-                            background-size: 100%;
-                            background-repeat: no-repeat;
-                            z-index: 4;
-                            display: inline-block;
-                            width: 23px;
-                            height: 44px;
-                        }
-
-                        &::after{
-                            content: '';
-                            position: absolute;
-                            top: 40%;
-                            right: 0;
-                            background: url('../images/slider_arrow.png');
-                            background-size: 100%;
-                            background-repeat: no-repeat;
-                            z-index: 4;
-                            display: inline-block;
-                            width: 23px;
-                            height: 44px;
-                            transform: rotate(180deg);
-                        }
-
-
-                        .carousel{
-
-                            // .metaslider{
-
-                                // #metaslider_container_33{
-                                //     left: -80px;
-                                //     position: absolute;
-
-                                // }
-
-                            // }
-    
-
-                                /*画像に余白をつけたい場合*/
-                                .flexslider .slides{
-                                    transform: translate3d(-650px, 0, 0);
-
-                                    li{
-                                        margin: 0 3rem;
-
-                                        img{
-                                            width: 95%;
-                                        }
-
-                                        .caption-wrap{
-                                            position: relative; 
-                                            background: #fff; 
-                                            color: #333; 
-                                            margin: 1rem 0;
-                                            opacity: 1;
-
-                                            .caption{
-                                                padding-left: 1.5em;
-                                                padding-right: 0;
-                                                margin-left: 2em;
-
-                                                p{
-                                                    font-size: 1.2rem;
-                                                    text-indent: -1em;
-                                                    text-align: left;
-                                                    line-height: 1.75;
-
-                                                }
-
-                                                .btn-aria{
-                                                    width: 60%;
-                                                
-                                                    
-                                                    a{
-                                                        height: 3rem;
-                                                        font-size: 1.6rem;
-                                                        line-height: 3rem;
-                                                        background: #8c3cff;
-                                                        border-radius: 3.5rem;
-                                                        display: block;
-                                                        position: relative;
-                                                        box-shadow: 0 0.3rem 0 0 #6d1fdc;
-                                                        color: #fff;
-                                                        font-weight: 700;
-                                                        letter-spacing: 0.03em;
-                                                        text-decoration: none;
-                                                        transition: opacity .4s;
-                                                        z-index: 4;
-                                                    }
-                                                
-                                                    
-                                                    
-                                                }
-                                            }
-                                        }
-                                    }
-
-                                    .slide-39{
-                                        .caption-wrap .caption{
-                                            padding-left: 0;
-                                            margin-left: 0;
-
-                                            .btn-aria{
-                                                display: block;
-                                                margin: 0 auto;
-
-                                                &:hover{
-                                                    opacity: .6s;
-                                                }
-                                            }
-                                        }
-                                    }
-
-                                    .flex-direction-nav{
-                                        li{
-                                            
-                                        } 
-                                    }
-                                } 
-                                
-                            // }
+                        h2{
                             
+
+                            img{
+                                width: 22.1rem;
+                                margin-bottom: 1.5rem;
+                            }
                         }
+
                     }
                 }
 
@@ -1332,6 +1133,63 @@ body{
 
         p{
             font-size: 1.2rem;
+        }
+
+        
+        .fxd_aria{
+            background: transparent;
+            border: none;
+            display: none;
+            
+    
+            .top_btn{
+                background: transparent;
+                border: none;
+                padding: 0 2.5rem 1rem 0;
+
+                img{
+                    height: 6rem;
+                    width: 6rem;
+                }
+            } 
+
+            .apl_btn{
+                padding: 2.5rem 3rem; 
+                background: rgba(0,0,0,0.7);
+                border: none;
+                
+                button{
+                    padding: 2.5rem 3rem;
+                    background: $acsent_P;
+                    border-radius: 4rem;
+                    border: none;
+                    display: block;
+                    position: relative;
+                    max-width: 80rem;
+                    box-shadow: 0 0.3rem 0 0 #6d1fdc;
+                    transition: opacity .4s;
+                    margin: 0 auto;
+                    
+
+                    a{
+                        font-weight: 700;
+                        letter-spacing: 0.03em;
+                        text-decoration: none;
+                        font-size: 2.1rem;
+                        border-left: none;
+                    }
+    
+                    &::after{
+                        content: '\f105';
+                        font-family: FontAwesome;
+                        position: absolute;
+                        right: 5%;
+                        top: 30%;
+                        color: #fff;
+                        font-size: 2.1rem;
+                    }
+                }
+            }
         }
     }
 }

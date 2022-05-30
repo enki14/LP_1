@@ -5,6 +5,10 @@ function theme_enqueue_styles(){
     wp_enqueue_style('my_bootstrap', '//stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css', '', '4.2.1', 'all');
     wp_enqueue_style('my_styles', get_template_directory_uri().'/css/mystyle.css', array('my_bootstrap'), '5.9.3', 'all');
     wp_enqueue_style('my_drawer', '//cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css', '', '3.2.2', 'all');
+    wp_enqueue_style('my_slicks', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', '1.8.1', 'all');
+    // スライダーのスタイルで、これも必要！
+    wp_enqueue_style('slick_theme', '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css', '1.9.0', 'all');
+
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -29,14 +33,15 @@ function add_my_scripts(){
     array(), '3.2.2');
     wp_enqueue_script('kitcode', '//kit.fontawesome.com/38f9c31fea.js',
     array(), '');
-    wp_enqueue_script('meta_slider', get_template_directory_uri().'/js/metaslider.js', array(), '');
-
+    wp_enqueue_script('slicks', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js',
+    array(), '1.8.1');
 
 }
 add_action('wp_enqueue_scripts', 'add_my_scripts');
 
 
 
+// 管理画面の方でドロワーメニューの中身を設定させる
 function register_my_menu(){
     register_nav_menu('my-drawer', 'ドロワーメニュー');
 }
@@ -44,7 +49,7 @@ add_action('after_setup_theme', 'register_my_menu');
 
 
 
-
+// 「よくあるご質問」部分
 function shortcode_QandA(){
     global $wpdb;
 
