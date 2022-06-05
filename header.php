@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico">
     <title>Document</title>
     <meta name="description" content="サイトキャプションを入力">
     <meta name="keywords" content="サイトキーワードを,で区切って入力">
@@ -109,7 +110,26 @@
             transform: translateY(0) rotate(45deg);
         }
                         
+        .drawer-menu-item a:hover{
+            text-decoration: none !important;
+        }
         /* 開いた状態 ↑↑↑ */
+
+        @media screen and (max-width: 1179px) {
+            .drawer-open .drawer-nav .drawer-menu{
+                top: 12.7rem;
+            }
+
+            .drawer-open .drawer-hamburger{
+                right: 0 !important;
+            }
+
+            .drawer-open .drawer-hamburger span:nth-of-type(3){
+                height: 0.3rem;
+                bottom: 1.9rem;
+                transform: translateY(-1.3rem) rotate(45deg);
+            }
+        }
 
     /******* drawer.js ↑↑↑ ********/
 
@@ -143,25 +163,12 @@
 
 
         /* slick.jsは!importantをつけたほうが良さそう */
-        .slick-list{
-            padding: 0 50px !important;
-        }
-        .slick-track{
-            display: table !important;
-            width: 23000px !important;
-            /* transform: translate3d(-2500px, 0px, 0px) !important; */
-        }
 
-        .slick-active,
         .slick-slide{
             /* 子のimgだけじゃなくてこちらの幅も指定しないと、スライドの一つ一つの幅が確保できない */
             width: 28.3rem !important;
-            margin: 0 5rem !important;
+            margin: 0 5rem;
             display:block;
-        }
-
-        ul.slickSlider > li:not(:first-child){
-            display: none !important;
         }
 
         .slick-slide img{
@@ -177,11 +184,11 @@
             padding: 1.5rem 0 0 1em;
         }
 
-        .slick-slide .btn-aria{
+        .slick-slide .slide1_btn{
             padding: 1.5rem 0 0.3rem;
         }
 
-        .slick-slide .btn-aria a{
+        .slick-slide .slide1_btn a{
             height: 3rem;
             font-size: 1.5rem;
             line-height: 3rem;
@@ -231,6 +238,17 @@
             color: #14eb0a !important;
         }
 
+        @media screen and (max-width: 1179px){
+            .slick-slide{
+                margin: 0 2.5rem;
+            }
+
+            .slick-slide .side1_btn{
+                background: #fff;
+            }
+
+        }
+
     /******* slick.js ↑↑↑ ********/
        
     </style>
@@ -240,7 +258,7 @@
 <!-- body_classにクラス名を追加するときは、配列として指定する -->
 <body <?php body_class(['drawer', 'drawer--right']); ?>>
     <header class="w-100" role="banner">
-        <div class="d-flex justify-content-between position-fixed w-100 bg-white">
+        <div class="d-flex justify-content-between position-fixed bg-white">
             <img src="<?php echo get_template_directory_uri(); ?>/images/p-header_logo.svg" 
             alt="linemo-logo" />
             <!-- drawer.jsのクラス名は固有のもの -->
@@ -254,9 +272,5 @@
                 <!-- 管理画面で設定したメニューの読み込み -->
 	            <?php wp_nav_menu( array( 'theme_location' => 'my-drawer', 'menu_class' => 'drawer-menu', 'container' => false, 'depth' => 1 ) ); ?>
             </nav>
-        </div>
-        <img src="<?php echo get_template_directory_uri().'/images/pc/l-kv_img_pc.jpg' ?>" alt="linemo-header" class="linemo-header w-100" />
-        <div class="btn-aria">
-            <a href="#" class="text-center btn-p">今すぐ申し込む</a>
         </div>
     </header>

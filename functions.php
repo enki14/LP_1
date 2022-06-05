@@ -61,10 +61,10 @@ function shortcode_QandA(){
             <p class="aco-header" id="heading_' . $data->id . '">
                 <button class="aco-btn collapsed w-100 text-left" type="button" data-toggle="collapse" 
                 data-target="#collapse_' . $data->id . '" aria-expanded="true" aria-controls="collapse_' . $data->id . '">
-                    ' . $data->question . '
+                    <span>' . $data->question . '</span>
                 </button>
             </p>
-            <div id="collapse_' . $data->id . '" class="aco-collapse collapse" aria-labelledby="heading_' . $data->id . '" data-parent="#accordion-Ex">
+            <div id="collapse_' . $data->id . '" class="aco-collapse collapse" aria-labelledby="heading_' . $data->id . '">
                 <div class="aco-body">
                     ' . $data->answer . '
                 </div>
