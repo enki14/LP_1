@@ -8,6 +8,9 @@ function theme_enqueue_styles(){
     wp_enqueue_style('my_slicks', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', '1.8.1', 'all');
     // スライダーのスタイルで、これも必要！
     wp_enqueue_style('slick_theme', '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css', '1.9.0', 'all');
+    if(is_front_page()){
+        wp_enqueue_style('front_styles', get_template_directory_uri().'/css/front-page.css', '', '5.9.3', 'all');
+    }
 
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');

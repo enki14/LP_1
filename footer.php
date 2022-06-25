@@ -37,8 +37,18 @@
                     'bottom':'-10rem', 
                     'top':'auto'
                 });
-                a_btn.css('background','#fff');
+                a_btn.css({
+                    'background':'#fff',
+                });
                 a_btn.html('<img src="' + close_path + '" alt="スマホプランを閉じる" />');
+
+                if(window.matchMedia("(max-width: 550px)").matches){
+                    a_header.css({
+                        'bottom':'auto',
+                        // !importantで上書きするときはcssTextを指定する
+                        'cssText':'top: 64.5rem !important;' 
+                    });
+                } 
             });
             // アコーディオンが閉じているときに「もっと見る」ボタン表示
             // ただしこちらはページ更新時の状態を指さない。ページ更新時はscssに記載
@@ -49,35 +59,36 @@
                     'top':'-10rem',
                     'bottom': 'auto'
                 });
-                a_btn.css('background','linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, white 50%, white 100%)');
+                a_btn.css({
+                    'background':'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, white 50%, white 100%)',
+                });
                 a_btn.html('<img src="' + show_path + '" alt="スマホプランを開く" />');
             });
-
-
-            // https://teratail.com/questions/146369
-            let first_tr = $(".accordion-body article table").eq("0");
-            if(window.matchMedia("(max-width: 450px)").matches){
-                $(".accordion-button").on('click', function(){
-                    $(first_tr.find("tr")[0]).toggleClass("tr-look");
-                });
-
-                first_tr.css({
-                    'height': 'inherit',
-                    'max-height': '5em',
-                    'overflow': 'hidden',
-                    'transition': 'all .3s linear 0s'
-                });
-
-                $(".tr-look").css('max-height','200px');
-            } 
         });
 
 
         jQuery(document).ready(function(){
-            $('.drawer').drawer();  
+            $('.drawer').drawer(); 
+            // クリックしたらドロワーを閉じてスムーススクロール実行
+            $('.drawer-menu-item').on('click', function(){
+                $('.drawer').drawer('close');
+                let adjust = -110;
+                let speed = 400;
+                let href = $(this).find('a').attr("href");
+                // 三項演算子
+                // hrefが#付きか空の場合、それはhtmlなのかhrefなのか
+                let target = $(href == "#" || href == "" ? 'html' : href);
+                // offset().top はlengthで指定しないとエラーになる
+                if(target.length){
+                    let position = target.offset().top + adjust;
+                    $('body,html').animate({scrollTop:position}, speed, 'swing');
+                    return false;
+                } 
+            }); 
 
+            
             $('.drawer').on('drawer.opened', function(){
-                $('header').css('background-color', 'rgba(0,0,0,0.5)');
+                $('body,html').css('background-color', 'rgba(0,0,0,0.5)');
             });
         });
 
@@ -98,19 +109,29 @@
             centerPadding: '0',
             // スライドの要素の幅をcssで設定できるようになる
             variableWidth: true,
-            focusOnSelect: true
+            focusOnSelect: true,
+            responsive:[
+                {
+                    breakpoint: 550,
+                    settings: {
+                        centerMode: true,
+                        centerPadding: '0',
+                        variableWidth: true
+                    }
+                }
+            ]
         });
 
 
         jQuery(function(){
             $(window).on('scroll', function(){
                 let fxdAria = $('.fxd_aria');
-                let btnAria = $('.btn-aria').offset().top; 
+                let oneAria = $('#campaign-1').offset().top; 
                 let footer = $('.aco_wrapper').offset().top;
                 let scroll = $(window).scrollTop();
 
-                $('.fxd_aria').each(function(){
-                    if(scroll > btnAria){
+                // $('.fxd_aria').each(function(){
+                    if(scroll > oneAria){
                         fxdAria.toggle(true);
                     }else{
                         fxdAria.toggle(false);
@@ -120,8 +141,7 @@
                     }else{
                         fxdAria.toggle(false);
                     }
-
-                });
+                // });
             });
 
             // トップへ戻るボタン
@@ -140,6 +160,6 @@
         });
 
     </script>
-    <?php wp_footer(); ?>
+    <!-- <?php wp_footer(); ?> -->
 </body>
 </html>

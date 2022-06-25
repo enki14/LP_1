@@ -2,6 +2,49 @@ $acsent_P: #8c3cff;
 $acsent_G: #14eb0a;
 
 
+@mixin clearfix{
+    &::after{
+        content: '';
+        display: block;
+        clear: both
+    }
+}
+
+// テーブルレイアウトで要素を横並び
+@mixin table_layout($margin: 0, $width: 100%){
+    display: table;
+    margin: 0 auto;
+    width: #{$width};
+    border-collapse: collapse;
+    // 「 > *{} 」直下の要素全てという意味
+    > *{
+        display: table-cell;
+        vertical-align: top;
+        padding: 0 #{$margin / 2}px;
+        &:first-child{
+            padding-left: 0;
+        }
+        &:last-child{
+            padding-right: 0;
+        }
+    }
+}
+
+@mixin font_pattern($size: 14px, $color: #666, $weight: 500){
+    font-size: #{$size};
+    color: #{$color};
+    font-weight: #{$weight};
+}
+
+@mixin btn_pattern($width: 100%, $padding: 20px 30px, $background: blue, $radius: 5px){
+    padding: #{$padding};
+    background: #{$background};
+    border-radius: #{$radius};
+    text-align: center;
+    width: #{$width};
+}
+
+
 .drawer--right{
 
     header div{
@@ -80,10 +123,6 @@ $acsent_G: #14eb0a;
 body{
     background: rgb(241, 240, 245);
 
-    // こちらである程度幅を効かせてあげないとバツ印が右へ移動しなかった
-    
-
-
     header{
         z-index: 5;
 
@@ -96,6 +135,102 @@ body{
                 width: 170px;
             }
  
+        }
+    }
+
+    main{
+
+        section{
+            max-width: 1100px;
+            margin: 70px auto;
+
+            .s-by-s{
+                @include table_layout(20, 100%);
+
+                div{
+                    border: 1px solid $acsent_P;
+                }
+            }
+
+            .mozi{
+                p{
+                    @include font_pattern(16px, #000, 700);
+                }
+
+                ul li{
+                    // font_pattern($size: 14px, $color: #666, $weight: 500)
+                    @include font_pattern();
+                }
+            }
+
+            .btn-aria{
+                p{
+                    @include font_pattern(16px, #000, 700);
+                }
+
+                div{
+                    @include clearfix();
+                    margin-bottom: 15px;
+
+                    button:nth-of-type(1){
+                        border: none;
+                        margin-right: 5px;
+                        @include font_pattern(14px, #fff, 700);
+                        @include btn_pattern(auto, 30px 40px, $acsent_G, 5px);
+                    }
+
+                    button:nth-of-type(2){
+                        border: none;
+                        margin-right: 5px;
+                        @include font_pattern(14px, #fff, 700);
+                        @include btn_pattern(auto, 20px 30px, $acsent_P, 5px);
+                    }
+
+                    button:nth-of-type(3){
+                        border: none;
+                        @include font_pattern(14px, #fff, 700);
+                        @include btn_pattern(auto, 10px 20px, skyblue, 3px);
+                        
+                    }
+                }
+
+                span{
+                    text-align: left;
+                    @include font_pattern(13px, #333, 500);
+                }
+            }
+
+            .color_palet{
+                text-align: center;
+                @include clearfix();
+
+                .green{
+                    background-color: green;
+                    width: 200px;
+                    height: 200px;
+                    float: left;
+                }
+                .yellow{
+                    background-color: yellow;
+                    width: 200px;
+                    height: 200px;
+                    float: left;
+                }
+            }
+
+            .red{
+                background-color: red;
+                width: 200px;
+                height: 200px;
+                float: left;
+            }
+
+            .black{
+                background-color: black;
+                width: 200px;
+                height: 200px;
+                float: left;
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ $layout-widht-inner: 910px;
 
 // mixinでメディアクエリを管理する
 $breakpoint: (
-    sp: 'screen and (max-width: 450px)',
+    sp: 'screen and (max-width: 550px)',
     tab: 'screen and (max-width: #{$layout-widht-inner - 1px})',
     pc: 'screen and (mix-width: #{$layout-widht-inner})'
 );
@@ -39,22 +39,39 @@ body{
     
 
     header{
-        height: 8.13rem;
+        height: 4.9rem;
 
         div{
             padding: 2.5rem;
             z-index: 2;
             box-shadow: 0 2px 3px 0 rgb(182 190 197 / 40%);
             width: 100%;
+            // fixedの上に隙間を作らないための top:0;
+            top: 0;
 
             img{
                 width: 170px;
+                z-index: 9 !important;
             }
         }
 
+        @include mq(tab){
+            height: 3.5rem;
+        }
+
         @include mq(sp){
+            height: 1.7rem;
+
             div{
-                width: 61.5%;
+                padding: 2rem;
+
+                img{
+                    width: 126px;
+                }
+
+                button span{
+                    width: 25px !important;
+                }
             }
         }
 
@@ -158,7 +175,19 @@ body{
 
             @include mq(sp){
                 .header-img{
-                    height: 160px;
+                    height: 55px;
+
+                    h2{
+                        padding: 0;
+
+                        .pc_1{
+                            display: block;
+                        }
+
+                        .sp_1{
+                            display: none;
+                        }
+                    }
                 }
             }
 
@@ -192,7 +221,7 @@ body{
 
             @include mq(sp){
                 section{
-                    padding: 1rem 0 1rem;
+                    padding: 2.5rem 0 1rem;
                     
                     h3{
                         margin-top: 25px;
@@ -309,10 +338,10 @@ body{
                         }
 
                         ul{
-                            padding-left: 2em;
+                            padding-left: 1em;
                             // ※1、※2を先頭に置きながら、list-styleはnone
                             list-style: none;  
-                            margin-left: 0.5em;
+                            // margin-left: 0.5em;
                             color: #666;
 
                             li{
@@ -330,7 +359,7 @@ body{
 
                     @include mq(tab){
                         article ul li{
-                            text-indent: -2rem;
+                            text-indent: -1rem;
                         }
                     }
 
@@ -345,6 +374,7 @@ body{
 
                             p{
                                 margin-right: 0;
+                                margin-top: 2rem;
                             }
 
                             ul{
@@ -358,16 +388,6 @@ body{
                 .plan{
                     margin: 20px 0;
 
-                    img{
-                        width: 70%;
-                    }
-
-                    @include mq(tab){
-                        img{
-                            width: 100%;
-                        }
-                    }
-
                     .scroll_add{
                         // y軸とx軸を一括で指定している
                         // overflow-x, overflow-yはここでは効かない
@@ -378,6 +398,10 @@ body{
                     article{
                         background: #fff;
                         padding: 50px;
+
+                        @include mq(sp){
+                            padding: 3rem 2rem;
+                        }
                         
                         p{
                             font-size: 1.4rem;
@@ -493,9 +517,19 @@ body{
 
                     }
 
+
+                    .plan_img{
+                        width: 75%;
+
+                        @include mq(tab){
+                            width: 100%;
+                        }
+                    }
+
+                    
+
                     .accordion{
                         margin-bottom: 5.5rem;
-
 
                         article{
                             padding-bottom: 5px;
@@ -527,8 +561,11 @@ body{
                                 background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, white 50%, white 100%);
                                 border: none;
                                 outline: none;
-                                width: 65%;
                                 cursor: pointer;
+
+                                img{
+                                    width: 55%;
+                                }
                             }
                         } 
 
@@ -539,6 +576,25 @@ body{
 
                             article::-webkit-scroll{
                                 display: none;
+                            }
+                        }
+
+                        @include mq(sp){
+                            margin-bottom: 7.5rem;
+
+                            // accordionを閉じていても中身がちらりと見えるようにしている
+                            .collapse:not(.show) {
+                                display: block !important;
+                                height: 10rem;
+                                overflow: hidden;
+                            } 
+                            
+                            h2{
+                                top: 4.5rem !important;
+
+                                button img{
+                                    width: 80%;
+                                }
                             }
                         }
                     }
@@ -587,6 +643,10 @@ body{
                             
                             
                         }
+
+                        @include mq(sp){
+                            margin-bottom: 3rem;
+                        }
                     }
 
                     .detail-btn button{
@@ -618,6 +678,29 @@ body{
                         }
                     }
 
+                    @include mq(sp){
+                        .detail-btn{
+                            margin-left: 2rem;
+                            margin-right: 2rem;
+
+                            button{
+                                width: 100%;
+                                padding-top: 0.7rem;
+                                padding-bottom: 1.3rem;
+                                padding-left: 1.5rem;
+                                padding-right: 1.5rem;
+        
+                                &::after{
+                                    top: 0.6rem;
+                                    right: 1rem;
+                                }
+
+                                a{
+                                    font-size: 1.2rem;
+                                }
+                            }
+                        }
+                    }
                 }
 
                 #plan_oth{
@@ -633,12 +716,89 @@ body{
                             margin-bottom: 0.7rem;
                         }
                     }
+
+                    h3{
+                        .pc_2{
+                            display: block;
+                        }
+
+                        .sp_2{
+                            display: none;
+                        }
+                    }
+
+                    @include mq(sp){
+                        article{
+                            padding-top: 0;
+                        }
+
+                        h3{
+                            .pc_2{
+                                display: none;
+                            }
+    
+                            .sp_2{
+                                display: block;
+                            }
+                        }
+                        
+
+                        div{
+                            padding-left: 2rem;
+                            padding-right: 2rem;
+
+                            .row{
+                                width: 100% !important;
+                                padding-left: 0 !important;
+                                padding-right: 0 !important;
+
+                                img{
+                                    padding-left: 0 !important;
+                                    padding-right: 0 !important;
+                                }
+                            }
+                        }
+                    }
+                    
                 }
 
                 .benefits{
                     padding: 50px;
                     background: #fff;
                     margin-bottom: 100px;
+
+                    @include mq(sp){
+                        margin-bottom: 5rem;
+                    }
+
+                    h4{
+                        .pc_3,
+                        .pc_4{
+                            display: block;
+                        }
+                        .sp_3,
+                        .sp_4{
+                            display: none;
+                        }
+                    }
+
+                    @include mq(sp){
+                        padding: 3rem 1.5rem;
+
+                        h4{
+                            margin-bottom: 2rem !important;
+                            text-align: center !important;
+
+                            .pc_3,
+                            .pc_4{
+                                display: none;
+                            }
+                            .sp_3,
+                            .sp_4{
+                                display: block;
+                            }
+                        }
+                    }
 
                     p{
                         font-size: 1.4rem;
@@ -665,6 +825,13 @@ body{
                         @include mq(tab){
                             img{
                                 width: 90%;
+                            }
+                        }
+
+                        @include mq(sp){
+                            ul{
+                                padding-left: 0;
+                                text-align: left;
                             }
                         }
                     }
@@ -699,6 +866,10 @@ body{
                                 }
                             }
                         } 
+
+                        @include mq(sp){
+                            padding: 3rem 2rem;
+                        }
                     }
 
                     .pre-note{
@@ -706,20 +877,32 @@ body{
                         color: #666;
                     }
 
+                    
+
                     .note-matters{
                         ul{
                             list-style: none;
-                            padding-left: 0;
+                            padding-left: 0.5rem;
+
 
                             li{
                                 line-height: 1.8;
                                 font-size: 1.2rem;
+                                text-indent: -1rem;
                             }
                         }
 
+                        @include mq(sp){
+                            margin-bottom: 0 !important;
+
+                            p{
+                                font-size: 1.3rem;
+                            }
+
+                        }
+
                         .noteList_2{
-                            padding-left: 1.5em;
-                            margin-left: 0.5em;
+                            padding-left: 1em;
                             list-style: none;
 
                             li{
@@ -728,8 +911,8 @@ body{
 
                                 ul{
                                     list-style: none;
-                                    padding-left: 1.5em;
-                                    margin-left: 0.5em;
+                                    padding-left: 1em;
+    
 
                                     &::before{
                                         position: absolute;
@@ -744,11 +927,20 @@ body{
                                     }
                                 }
                             }
+
+                            @include mq(sp){
+                                li{
+                                    font-size: 1.3rem;
+
+                                    ul li{
+                                        font-size: 1.1rem;
+                                    }
+                                }
+                            }
                         }
     
                         p{
                             
-
                             a{
                                 text-decoration: underline;
                                 color:#000;
@@ -771,6 +963,20 @@ body{
                             width: 100%;
                             font-size: 1.4rem;
                             margin-bottom: 1.8rem;
+
+                            br{
+                                display: none;
+                            }
+
+                            thead tr{
+                                background:#14cd0a;
+                                color:#fff;
+
+                                td{
+                                    padding:1rem; 
+                                    border:2px solid #fff;
+                                }
+                            }
 
                             tbody tr{
 
@@ -805,6 +1011,33 @@ body{
                                     }
                                 }       
                             }
+
+                            @include mq(sp){
+                                br{
+                                    display: block;
+                                }
+
+                                thead tr{
+                                    font-size: 1.1rem;
+                                    text-align: left;
+    
+                                    td{
+                                        padding:0.8rem; 
+                                    }
+                                }
+
+                                tbody{
+                                    th,
+                                    td{
+                                        padding: 0.8rem !important;
+                                    }
+
+                                    th{
+                                        font-size: 1.1rem !important;
+                                    }
+                                }
+                                
+                            }
                         }
 
 
@@ -837,6 +1070,12 @@ body{
 
                                 }       
                             }
+
+                            @include mq(sp){
+                                tbody tr td:nth-child(1){
+                                    width: 50%;
+                                }
+                            }
                         }
 
                         p{
@@ -849,16 +1088,19 @@ body{
                         list-style: none;
                         padding-left: 0;
                         color: #666;
+                        padding-left: 1em;
+                        margin-left: 0.5em;
 
                         li{
                             line-height: 1.7;
                             font-size: 1.2rem;
                             text-align: left;
                             letter-spacing: 1.7;
+                            text-indent: -1rem;
 
                             ul{
                                 list-style: none;
-                                padding-left: 1rem;
+                                padding-left: 0.5rem;
 
                                 li{
                                     line-height: 1.7;
@@ -873,7 +1115,7 @@ body{
                     .conditions{
                         list-style: none;
                         padding-left: 0;
-                        margin-left: 0.5rem;
+                        margin-left: 0.4rem;
                         padding-left: 0.5rem;
 
                         .condi_li{
@@ -881,7 +1123,7 @@ body{
                             font-size: 1.5rem;
                             text-align: left;
                             letter-spacing: 1.7;
-                            text-indent: -1.9rem;
+                            text-indent: -1rem;
 
                             &::before{
                                 content: "●";
@@ -892,7 +1134,7 @@ body{
 
                             ul{
                                 list-style: none;
-                                padding-left: 0;
+                                padding-left: 0.5rem;
 
                                 li{
                                     line-height: 2;
@@ -978,6 +1220,12 @@ body{
             }
         }
 
+        @include mq(sp){
+            .white-band::before{
+                height: 12px;
+            }
+        }
+
         // 「選べる2つの料金プラン」部分
         // .campaignに似た要素
         .point-eria{
@@ -998,6 +1246,13 @@ body{
                 height: 240px;
             }
 
+            @include mq(sp){
+                &::before{
+                    height: 34.1vw;
+                }
+                
+            }
+
             .P_wrapper{
                 margin: 0 auto; //余白で幅をそろえている
                 max-width: 102rem;
@@ -1007,7 +1262,7 @@ body{
                     position: relative;
 
                     img{
-                        width: 354px;
+                        width: 406px;
                     }
 
                     &::before{
@@ -1033,6 +1288,24 @@ body{
                         img{
                             width: 300px;
                             height: auto;
+                        }
+                    }
+
+                    @include mq(sp){
+                        &::before{
+                            width: 61px;
+                            height: 61px;
+                            left: 1rem;
+                            top: -5rem;
+                        }
+
+                        img{
+                            position: absolute;
+                            width: 76%;
+                            margin-left: 24%;
+                            top: -4rem;
+                            left: 0;
+
                         }
                     }
                 }
@@ -1097,6 +1370,34 @@ body{
                             width: 500px;
                         }
                     }
+
+                    @include mq(sp){
+                        margin-top: 1.7rem !important;
+                        padding: 2.5rem 2rem;
+
+                        p{
+                            font-size: 1.4rem;
+                            line-height: 1.7;
+                        }
+
+                        div img{
+                            width: 100%;
+                        }
+
+                        .detail-btn button{
+                            width: 100%;
+                            padding: 0.7rem 1.5rem 1.2rem;
+
+                            a{
+                                font-size: 1.2rem;
+                            }
+
+                            &::after{
+                                top: 0.6rem;
+                                right: 1rem;
+                            }
+                        }
+                    }
                     
                 }
 
@@ -1126,7 +1427,7 @@ body{
 
                 .point_plan{
                     ul{
-                        padding-left: 1em;
+                        padding-left: 0.5em;
                         list-style: none;  
                         
 
@@ -1141,6 +1442,20 @@ body{
                             }
                         }
                     }
+                }
+
+                @include mq(sp){
+                    h2{
+                        margin-bottom: 2rem !important;
+
+                        img{
+                            width: 100% !important;
+                        }
+    
+                        div img{
+                            width: 85% !important;
+                        }
+                    } 
                 }
             }
         }
@@ -1164,13 +1479,29 @@ body{
                         width: 90%;
                     }
 
-                    ul li{
+                    ul{
+                        padding-left: 1em;
 
-                        a{
-                            color:#666;
-                            text-decoration: underline;
-                        }
+                        li{
+                            text-indent: -1em;
+    
+                            a{
+                                color:#666;
+                                text-decoration: underline;
+                            }
+                        } 
                     } 
+                }
+
+                @include mq(sp){
+                    h3 img{
+                        width: 70%;
+                        margin-left: 24%;
+                    }
+
+                    .point_plan div img{
+                        width: 100%;
+                    }
                 }
             }
         }
@@ -1180,6 +1511,10 @@ body{
         padding: 6.6em 4.7rem 1rem; 
         position: relative;
 
+        @include mq(sp){
+            padding: 1.5rem !important;
+        }
+
         .aco_wrapper{
             margin: 0 auto; //余白で幅をそろえている
             max-width: 102rem;
@@ -1188,6 +1523,14 @@ body{
             h2{
                 img{
                     width: 35%;
+                }
+
+                @include mq(sp){
+                    margin: 3.3rem !important;
+
+                    img{
+                        width: 100%;
+                    }
                 }
             }
 
@@ -1246,6 +1589,17 @@ body{
                         &::after{
                             transform: translateY(-50%) rotate(90deg);
  
+                        }
+
+                        @include mq(sp){
+                            span{
+                                font-size: 1.2rem;
+                            }
+                            
+                            &::before,
+                            &::after{
+                                width: 12px;
+                            }
                         }
 
                     }
@@ -1311,6 +1665,12 @@ body{
                 }
             }
 
+            @include mq(sp){
+                .qa_list{
+                    font-size: 1.1rem;
+                }
+            }
+
 
             .sns_eria{
                 padding: 10rem 20rem;
@@ -1341,13 +1701,31 @@ body{
                             width: 120px;
                         }
                     }
-                } 
+
+                    @include mq(sp){
+                        img{
+                            width: 170px;
+                        }
+                    }
+
+
+                }
+                
+                @include mq(sp){
+                    padding-top: 5rem;
+                    padding-bottom: 10rem;
+                    padding-left: 0;
+                    padding-right: 0;
+                }
             }
 
             .crumb_eria{
 
                 #breadcrumbs{
                     margin-bottom: 0;
+                    padding-bottom: 0.7rem;
+                    white-space: nowrap;
+                    overflow: auto;
 
                     span span{
                         a{
@@ -1381,6 +1759,12 @@ body{
         }
     }
 
+    @include mq(sp){
+        .aco-eria{
+            padding-bottom: 0 !important;
+        }
+    }
+
     footer{
         background: #b4b9be;
         padding-top: 2rem;
@@ -1396,6 +1780,15 @@ body{
                 &:nth-child(3){
                     border-right: 1px solid #fff;
                 }
+            }
+        }
+
+        @include mq(sp){
+            padding-top: 1.5rem;
+
+            div a{
+                padding: 0.2rem 1rem !important;
+                font-size: 1.1rem;
             }
         }
 
@@ -1427,6 +1820,17 @@ body{
                 }
                
             } 
+
+            @include mq(sp){
+                .top_btn{
+                    padding-right: 0 !important;
+
+                    a img{
+                        width: 4.5rem;
+                        height: 4.5rem;
+                    }
+                }
+            }
 
             .apl_btn{
                 padding: 2.5rem 3rem; 
@@ -1463,6 +1867,23 @@ body{
                         color: #fff;
                         font-size: 2.1rem;
                     }
+                }
+
+                @include mq(sp){
+                    padding: 1.5rem 3rem;
+
+                    button{
+                        padding: 1.2rem 1.5rem;
+
+                        &::after{
+                            right: 8%;
+                            top: 15%;
+                        }
+
+                        a{
+                            font-size: 1.4rem;
+                        }
+                    } 
                 }
             }
 

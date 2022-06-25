@@ -4,16 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php if(is_front_page()): ?>
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/front-page.css" />
-    <?php endif; ?>
     <title>Document</title>
     <style>
         .Box{
             border: 2px solid skyblue;
             width: 1000px;
             margin: 0 auto;
-            /* overflow: hidden; */
             
         }
 
@@ -24,7 +20,6 @@
 
         .slider{
             padding-left: 0;
-            /* overflow: hidden; */
         }
 
         .slider li {
@@ -85,7 +80,7 @@
             </nav>
         </div>
     </header>
-    <main class="text-center w-100">
+    <main class="w-100">
         <div class="d-block">
             <h1>ここはトップページです</h1>
         </div>
@@ -114,8 +109,55 @@
                 </li>
             </div>
         </div>
+        <section>
+            <h2>こちらはscssの練習</h2>
+            <article class="s-by-s mb-5">
+                <div>
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/slide1.png" 
+                    class="w-100" alt="スライド1">
+                </div>
+                <div>
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/slide2.png" 
+                    class="w-100" alt="スライド2">
+                </div>
+                <div>
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/slide1.png" 
+                    class="w-100" alt="スライド3">
+                </div>
+                <div>
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/slide1.png" 
+                    class="w-100" alt="スライド4">
+                </div>
+                <div>
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/slide1.png" 
+                    class="w-100" alt="スライド5">
+                </div>
+            </article>
+            <div class="mozi mb-5">
+                <p class="text-left">p と li の文字の変化を確かめます</p>
+                <ul class="text-left">
+                    <li>泣かぬなら鳴くまで待とう時鳥</li>
+                    <li>泣かぬなら泣かせてみよう時鳥</li>
+                    <li>泣かぬなら〇してしまえ時鳥</li>
+                </ul>
+            </div>
+            <div class="btn-aria mb-5">
+                <p>ボタンの設定を確かめます</p>
+                <div>
+                    <button>btn click!!</button>
+                    <button>btn click!!</button>
+                    <button>btn click!!</button>
+                </div>
+                <span>※ この文字がボタンの下に行くか試しています</span>
+            </div>
+            <div class="color_palet">
+                <div class="green"></div>
+                <div class="yellow"></div>
+            </div>
+            <div class="red"></div>
+            <div class="black"></div>
+            
         </section>
-        
     </main>
     <script>
         jQuery(document).ready(function(){

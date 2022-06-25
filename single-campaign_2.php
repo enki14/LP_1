@@ -28,7 +28,9 @@
         <section id="plan_oth" class="plan">
             <h3 class="mb-5 w-100">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign02_premiere_ttl_img_pc.png" 
-                alt="LINEスタンププレミアム" class="w-100">
+                class="pc_2 w-100" alt="LINEスタンププレミアム">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/sp/l-campaign02_premiere_ttl_img_sp.png" 
+                class="sp_2 w-100" alt="LINEスタンププレミアム">
             </h3>
             <article class="text-left w-100">
                 <p class="font-weight-bold"><span>900万種類以上の対象クリエイターズスタンプ・絵文字が使い放題</span>のサブスクリプションサービスです。</p>
@@ -53,7 +55,9 @@
         <section class="benefits w-100">
             <h4 class="mb-4">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_period_ttl_img_pc.png" 
-                class="w-100" alt="キャンペーン期間"/>
+                class="pc_3 w-100" alt="キャンペーン期間"/>
+                <img src="<?php echo get_template_directory_uri(); ?>/images/sp/l-campaign02_premiere_campaign_ttl_img_sp.png" 
+                class="sp_3 w-100" alt="キャンペーン期間"/>
             </h4>
             <div class="seventeen-img mb-4">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_period_ttl_sub_img_pc.png" 
@@ -64,24 +68,26 @@
             </div>
             <h4 class="mb-5">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_period_privilege_ttl_img_pc.png" 
-                class="w-100" alt="特典">
+                class="pc_4 w-100" alt="特典">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/sp/l-campaign02_premiere_content_ttl_img_sp.png" 
+                class="sp_4 w-100" alt="特典">
             </h4>
             <article class="bene_T">
                 <table border="1" class="table_2 w-100">
                     <thead>
-                        <tr style="background:#14cd0a; color:#fff;">
-                            <th style="padding:1rem;"></th>
-                            <td style="padding:1rem; border:2px solid #fff;">月間プラン/ 年間プランに加入中</td>
-                            <td style="padding:1rem; border:2px solid #fff;">学割プランに加入中</td>
+                        <tr>
+                            <th></th>
+                            <td>月間プラン/ <br>年間プランに加入中</td>
+                            <td>学割プランに<br>加入中</td>
                         </tr>
                     </thead>
                     <tr>
-                        <th>ベーシックコース</th>
-                        <td rowspan="2">LINEポイント<span>240ポイント</sapn></td>
-                        <td rowspan="2">LINEポイント<span>120ポイント</span></td>
+                        <th>ベーシック<br>コース</th>
+                        <td rowspan="2">LINEポイント<br><span>240ポイント</sapn></td>
+                        <td rowspan="2">LINEポイント<br><span>120ポイント</span></td>
                     </tr>
                     <tr>
-                        <th>デラックスコース</th>
+                        <th>デラックス<br>コース</th>
                     </tr>
                 </table>
             </article>

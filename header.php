@@ -9,7 +9,7 @@
     <meta name="description" content="サイトキャプションを入力">
     <meta name="keywords" content="サイトキーワードを,で区切って入力">
     <style>
-        
+    /*************************************************/
     /******* drawer.js（ドロワーメニュー） ↓↓↓ ********/
 
         .drawer--right .drawer-hamburger{
@@ -74,7 +74,7 @@
         .drawer-open .drawer-nav .drawer-menu{
             display: block;
             position: absolute;
-            top: 11.2rem;
+            top: 8.1rem;
             width: 100%;
         }
 
@@ -109,6 +109,49 @@
             border-right: 0.2rem solid #14eb0a;
             transform: translateY(0) rotate(45deg);
         }
+
+        /************* 閉じる瞬間も、オープン時と同じstyleにする  **********/
+        /************* そうしないとデフォルトのstyleが一瞬表示されてしまう ↓↓↓↓ **********/
+        .drawer-close .drawer-nav .drawer-menu{
+            display: block;
+            position: absolute;
+            top: 11.2rem;
+            width: 100%;
+        }
+
+        .drawer-close .drawer-nav .drawer-menu li{
+            border-top: 1px solid #3333;
+        }
+
+        .drawer-close .drawer-nav .drawer-menu li:nth-child(4){
+            border-bottom: 1px solid #3333;
+        }
+
+        .drawer-close .drawer-nav .drawer-menu-item{
+            position: relative;
+            padding: 2.4rem 0 2.5rem 2rem;
+
+        }
+
+        .drawer-close .drawer-nav .drawer-menu-item a{
+            color: #14eb0a !important;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+            
+        .drawer-close .drawer-nav .drawer-menu-item a::after{
+            position: absolute;
+            top: 45%;
+            right: 2rem; 
+            width: 0.9rem;
+            height: 0.9rem;
+            content: "";
+            border-top: 0.2rem solid #14eb0a;
+            border-right: 0.2rem solid #14eb0a;
+            transform: translateY(0) rotate(45deg);
+        }
+
+        /************* close時のスタイル ↑↑↑↑ **********/
                         
         .drawer-menu-item a:hover{
             text-decoration: none !important;
@@ -116,9 +159,9 @@
         /* 開いた状態 ↑↑↑ */
 
         @media screen and (max-width: 1179px) {
-            .drawer-open .drawer-nav .drawer-menu{
-                top: 12.7rem;
-            }
+            /* .drawer-open .drawer-nav .drawer-menu{
+                top: 12.7rem !important;
+            } */
 
             .drawer-open .drawer-hamburger{
                 right: 0 !important;
@@ -131,10 +174,19 @@
             }
         }
 
-    /******* drawer.js ↑↑↑ ********/
+        @media screen and (max-width: 550px) {
+            .drawer-open .drawer-nav .drawer-menu{
+                top: 6.5rem;
+            }
+
+        }
+
+    /******* drawer.js ↑↑↑ *******************************************/
+    /*****************************************************************/
 
 
-    /******* slick.js（スライダー） ↓↓↓ ********/
+    /****************************************************************/
+    /******* slick.js（スライダー） ↓↓↓ ******************************/
     
         .prev_icon{
             position: absolute;
@@ -207,6 +259,12 @@
             width: 80%;
         }
 
+        .slide1_btn .btn-p i{
+            position: absolute;
+            top: 0.7rem;
+            right: 2rem;
+        }
+
         .slick-dots{
             bottom: -1.8rem !important;
             justify-content: center !important;
@@ -249,8 +307,38 @@
 
         }
 
-    /******* slick.js ↑↑↑ ********/
-       
+        @media screen and (max-width: 550px){
+            .slide_box{
+                padding-bottom: 0;
+            }
+
+            .slickSlider{
+                margin: 0 auto !important;
+            }
+
+            .slick-slide{
+                margin: 0 2.6rem;
+            }
+
+            .slick-slide img{
+                height: auto;
+                width: 260px;
+            }
+
+            .slick-slide .slide1_btn a{
+                width: 60%;
+            }
+
+            .slick-slide p{
+                padding: 1.5rem 3.3rem 0 2rem;
+                font-size: 1.2rem !important;
+            }
+
+        }
+
+    /******* slick.js ↑↑↑ ***********************************************/
+    /********************************************************************/
+    
     </style>
     <?php wp_head(); ?>
 </head>

@@ -27,7 +27,8 @@
             </article>
         </section>
         <section class="plan position-relative">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_price_ttl_img_02_pc.png" alt="ミニプラン" />
+            <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_price_ttl_img_02_pc.png" 
+            class="plan_img" alt="ミニプラン" />
             <article class="scroll_add mb-4">
                 <table border="1" class="table_1">
                         <tr>
@@ -79,9 +80,8 @@
                     </tr>
                 </table>
             </article>
-        <!-- </section> -->
-        <!-- <section class="plan position-relative"> -->
-            <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_price_ttl_img_pc.png" alt="スマホプラン" />
+            <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_price_ttl_img_pc.png" 
+            class="plan_img" alt="スマホプラン" />
             <div class="accordion" id="accordionExample">
                 <div class="accordion-item position-relative">
                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -141,7 +141,8 @@
                     </div>
                     <h2 class="accordion-header py-5" id="headingOne">
                         <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/l-campaign01_price_btn_more_img.png" alt="スマホプランをもっと見る" />
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/l-campaign01_price_btn_more_img.png" 
+                            alt="スマホプランをもっと見る" />
                         </button>
                     </h2>
                 </div>
