@@ -1,19 +1,19 @@
 
 <div id="three-point" class="content_2">
     <div class="white-band w-100">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-point_header_img_pc.png" 
+        <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-point_header_img_pc.png') ?>" 
         alt="3つのポイント" class="w-100" />
     </div>
     <div id="point_1" class="point-eria"> 
         <div class="P_wrapper">
             <h3 class="text-center w-100">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-point_plan_ttl_01_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-point_plan_ttl_01_pc.png') ?>" 
                 alt="選べる2つの料金プラン" class="point-h2 text-center" />
             </h3>
             <section class="point_plan mt-5">
                 <p class="text-left">たっぷり使える20GBのスマホプランに追加して、3GBのミニプランが登場。スマホの使い方にあった選び方ができるようになりました。</p>
                 <div class="text-center mt-4">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-point_plan_item_02_pc.png" alt="ミニプランとスマホプラン" />
+                    <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-point_plan_item_02_pc.png') ?>" alt="ミニプランとスマホプラン" />
                 </div>
                 <ul class="text-left my-5">
                     <li>※時間帯により速度制御の場合あり。</li>
@@ -30,15 +30,15 @@
     <div id="point_2" class="point-eria"> 
         <div class="P_wrapper">
             <h3 class="text-center w-100">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-point_tel_ttl_01_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-point_tel_ttl_01_pc.png') ?>" 
                 alt="LINE通話がギガノーカウント" class="point-h2 text-center" />
             </h3>
             <section class="point_plan mt-5">
                 <h2 class="text-center mb-5">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-point_tel_ttl_02_pc.png" alt="ギガノーカウント" class="w-75" />
+                    <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-point_tel_ttl_02_pc.png') ?>" alt="ギガノーカウント" class="w-75" />
                 </h2>
                 <div class="text-center mt-5">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-point_tel_item_01_pc.png" alt="電話をかけあうイメージ" class="w-50 mb-5" />
+                    <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-point_tel_item_01_pc.png') ?>" alt="電話をかけあうイメージ" class="w-50 mb-5" />
                 </div>
                 <p class="text-left">LINEアプリのトークはもちろん、音声・ビデオ通話のデータ消費もゼロ。データ容量を使い切っても（通信速度制限がかかっても）LINEアプリの通信速度は落ちません。</br>
                 また、データ容量の大きな画像・動画の送受信やLINE VOOM（旧：タイムライン）への投稿もLINEギガフリーの対象です。</p>
@@ -57,15 +57,15 @@
     <div id="point_3" class="point-eria"> 
         <div class="P_wrapper">
             <h3 class="text-center w-100">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-point_connect_ttl_01_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-point_connect_ttl_01_pc.png') ?>" 
                 alt="5G通信も使えて早い" class="point-h2 text-center" />
             </h3>
             <section class="point_plan mt-5">
                 <h2 class="text-center mb-4">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-point_connect_ttl_02_pc.png" alt="LINEMOなら" class="w-100" />
+                    <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-point_connect_ttl_02_pc.png') ?>" alt="LINEMOなら" class="w-100" />
                 </h2>
                 <div class="text-center mt-4">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-point_connect_item_img_pc.png" alt="5G高速通信" class="mb-4" />
+                    <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-point_connect_item_img_pc.png') ?>" alt="5G高速通信" class="mb-4" />
                 </div>
                 <p class="text-left">LINEMOはソフトバンクの回線をそのまま利用しているので、お昼や夕方も繋がりやすく日本全国各地で繋がります。</p>
                 

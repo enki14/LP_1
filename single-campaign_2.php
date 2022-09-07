@@ -3,14 +3,14 @@
         <section class="gaiyoo">
             <h2 class="text-center">
                 <span>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign02_ttl_icn_img_pc.png" 
+                    <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign02_ttl_icn_img_pc.png') ?>" 
                     alt="サークル2" class="campaign-circle" />
                 </span>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign02_ttl_img_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign02_ttl_img_pc.png') ?>" 
                 alt="ポイントバックキャンペーン" class="campaign-img_1 w-100" />
             </h2>
             <article>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_content_ttl_img_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign01_content_ttl_img_pc.png') ?>" 
                 class="w-100" alt="キャンペーン概要">
                 <p class="font-weight-bold text-left">LINEMOの「スマホプラン」を契約の上でLINEスタンプ プレミアム（ベーシックコース/デラックスコース）をご加入中の方にLINEポイント240ポイントを毎月プレゼント。</p>
                 <ul class="text-left">
@@ -20,16 +20,16 @@
                 </ul>
             </article>
             <article class="mb-5 w-100">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign02_content_ttl2_img_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign02_content_ttl2_img_pc.png') ?>" 
                 class="w-100" alt="予告">
                 <p class="font-weight-bold text-left">LINEスタンプ プレミアム（ベーシックコース/保有可能数：5個）を、LINEスタンプ プレミアム利用料の追加料金なしでご利用いただけるよう現在準備中です。もうしばらくお待ち下さい。</p>
             </article>
         </section>
         <section id="plan_oth" class="plan">
             <h3 class="mb-5 w-100">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign02_premiere_ttl_img_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign02_premiere_ttl_img_pc.png') ?>" 
                 class="pc_2 w-100" alt="LINEスタンププレミアム">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/sp/l-campaign02_premiere_ttl_img_sp.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/sp/l-campaign02_premiere_ttl_img_sp.png') ?>" 
                 class="sp_2 w-100" alt="LINEスタンププレミアム">
             </h3>
             <article class="text-left w-100">
@@ -40,9 +40,9 @@
             </article>
             <div class="d-flex justify-content-center">
                 <div class="row w-75">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/l-campaign02_premiere_point_img01.png" 
+                    <img src="<?php echo esc_url(get_template_directory_uri() .'/images/l-campaign02_premiere_point_img01.png') ?>" 
                     alt="プレミアム1" class="col-md-6">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/l-campaign02_premiere_point_img02.png" 
+                    <img src="<?php echo esc_url(get_template_directory_uri() .'/images/l-campaign02_premiere_point_img02.png') ?>" 
                     alt="プレミアム2" class="col-md-6">
                 </div>
             </div>
@@ -54,22 +54,22 @@
         </section>
         <section class="benefits w-100">
             <h4 class="mb-4">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_period_ttl_img_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign01_period_ttl_img_pc.png') ?>" 
                 class="pc_3 w-100" alt="キャンペーン期間"/>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/sp/l-campaign02_premiere_campaign_ttl_img_sp.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/sp/l-campaign02_premiere_campaign_ttl_img_sp.png') ?>" 
                 class="sp_3 w-100" alt="キャンペーン期間"/>
             </h4>
             <div class="seventeen-img mb-4">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_period_ttl_sub_img_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign01_period_ttl_sub_img_pc.png') ?>" 
                 alt="3/17終了"/>
                 <ul>
                     <li>※キャンペーン終了時期は、ホームページなどでお知らせします。</li>
                 </ul>
             </div>
             <h4 class="mb-5">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_period_privilege_ttl_img_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign01_period_privilege_ttl_img_pc.png') ?>" 
                 class="pc_4 w-100" alt="特典">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/sp/l-campaign02_premiere_content_ttl_img_sp.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/sp/l-campaign02_premiere_content_ttl_img_sp.png') ?>" 
                 class="sp_4 w-100" alt="特典">
             </h4>
             <article class="bene_T">
@@ -104,7 +104,7 @@
             </ul>
 
             <h4 class="my-5">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_period_condition_ttl_img_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign01_period_condition_ttl_img_pc.png') ?>" 
                 class="w-100" alt="適用条件">
             </h4>
             <p class="font-weight-bold text-left mb-5">キャンペーン期間中の毎月末日（以下「特典付与判定日」といいます。）に、以下の条件のすべてを満たしている場合に特典を付与いたします。</p>
@@ -130,39 +130,39 @@
             </ul>
             <div class="slide_box">
                 <h2>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/l-campaign02_howto_ttl_img.png" 
+                    <img src="<?php echo esc_url(get_template_directory_uri() .'/images/l-campaign02_howto_ttl_img.png') ?>" 
                     alt="LINEの連携方法">
                 </h2>
                 <ul class= "slickSlider pl-0">
                     <li>
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/slide1.png" 
+                        <img src="<?php echo esc_url(get_template_directory_uri() .'/images/slide1.png') ?>" 
                         alt="スライド1">
                         <div class="slide1_btn">
                             <a href="#" class="text-center btn-p">友達追加する&nbsp;<i class="fa-solid fa-chevron-right"></i></a>
                         </div>
                     </li>
                     <li>
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/slide2.png" 
+                        <img src="<?php echo esc_url(get_template_directory_uri() .'/images/slide2.png') ?>" 
                         alt="スライド2">
                     </li>
                     <li>
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/slide3.png" 
+                        <img src="<?php echo esc_url(get_template_directory_uri() .'/images/slide3.png') ?>" 
                         alt="スライド3">
                         <p class="w-100">※必ず「Wi-Fi」利用をOFFにしておこなってください。</p>
                     </li>
                     <li>
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/slide4.png" 
+                        <img src="<?php echo esc_url(get_template_directory_uri() .'/images/slide4.png') ?>" 
                         alt="スライド4">
                     </li>
                     <li>
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/slide5.png" 
+                        <img src="<?php echo esc_url(get_template_directory_uri() .'/images/slide5.png') ?>" 
                         alt="スライド5">
                         <p class="w-100">※LINEアカウントを解除したい場合は「My Menuとの連携はこちら」を選択し、次の画面にて「アカウント連携を解除する」を選択してください。</p>
                     </li>
                 </ul> 
             </div>
             <h4 class="my-5">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign02_period_content_ttl_img_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign02_period_content_ttl_img_pc.png') ?>" 
                 class="w-100" alt="特典付与時期">
             </h4>
             <p class="font-weight-bold text-left">LINEポイントは、各特典付与判定日の翌月中旬頃に付与いたします。ただし、都合により前後する可能性がございます。</p>

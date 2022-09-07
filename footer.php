@@ -8,7 +8,7 @@
         <div class="fxd_aria fixed-bottom">
             <div href="header" class="top_btn w-100 text-right">
                 <a href="#">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/sp/pagetop_btn_sp.png" 
+                    <img src="<?php echo esc_url(get_template_directory_uri() .'/images/sp/pagetop_btn_sp.png') ?>" 
                     alt="ページトップボタン">
                 </a>
             </div>
@@ -26,7 +26,7 @@
             let a_header = jQuery('.accordion-header');
             let a_btn = jQuery('.accordion-button');
             // phpタグはjqueryの中でも文字列として変数に置き換えられる
-            let temp_dir = "<?php echo get_template_directory_uri(); ?>";
+            let temp_dir = "<?php echo esc_url(get_template_directory_uri()); ?>";
             let close_path = temp_dir + '/images/l-campaign01_price_btn_close_img.png';
             let show_path = temp_dir + '/images/l-campaign01_price_btn_more_img.png';
             // アコーディオンが開いているときに「閉じる」ボタン表示
@@ -92,7 +92,7 @@
             });
         });
 
-        let template = "<?php echo get_template_directory_uri(); ?>";
+        let template = "<?php echo esc_url(get_template_directory_uri()); ?>";
         jQuery(".slickSlider").slick({
             dots:true,
             prevArrow: '<img src="'+ template +'/images/slider_arrow.png" alt="前へ戻るボタン" class="prev_icon">',
@@ -130,18 +130,16 @@
                 let footer = $('.aco_wrapper').offset().top;
                 let scroll = $(window).scrollTop();
 
-                // $('.fxd_aria').each(function(){
-                    if(scroll > oneAria){
-                        fxdAria.toggle(true);
-                    }else{
-                        fxdAria.toggle(false);
-                    }
-                    if(scroll < footer){
-                        fxdAria.toggle(true);
-                    }else{
-                        fxdAria.toggle(false);
-                    }
-                // });
+                if(scroll > oneAria){
+                    fxdAria.toggle(true);
+                }else{
+                    fxdAria.toggle(false);
+                }
+                if(scroll < footer){
+                    fxdAria.toggle(true);
+                }else{
+                    fxdAria.toggle(false);
+                }
             });
 
             // トップへ戻るボタン

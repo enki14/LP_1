@@ -4,14 +4,14 @@
         <section class="gaiyoo">
             <h2 class="text-center">
                 <span>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_ttl_icn_img_pc.png" 
+                    <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign01_ttl_icn_img_pc.png') ?>" 
                     alt="サークル1" class="campaign-circle" />
                 </span>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_ttl_img_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign01_ttl_img_pc.png') ?>" 
                 alt="割引キャンペーン" class="campaign-img_1 w-100" />
             </h2>
             <article>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_content_ttl_img_pc.png" alt="キャンペーン概要" class="gaiyou w-100 mb-5" />
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign01_content_ttl_img_pc.png') ?>" alt="キャンペーン概要" class="gaiyou w-100 mb-5" />
                 <p class="text-left mb-4">
                     5分以内の国内通話が無料になる通話オプション「通話準定額」（税込550円/月）※1がLINEMO契約から1年後まで無料※2で利用できます。<br />
                     また、通話時間・回数ともに無制限で、国内通話がかけ放題になる通話オプション「通話定額」（税込1,650円/月）※1は、LINEMO契約から1年後まで月額1,100円（税込）で利用できます。
@@ -27,7 +27,7 @@
             </article>
         </section>
         <section class="plan position-relative">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_price_ttl_img_02_pc.png" 
+            <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign01_price_ttl_img_02_pc.png') ?>" 
             class="plan_img" alt="ミニプラン" />
             <article class="scroll_add mb-4">
                 <table border="1" class="table_1">
@@ -80,7 +80,7 @@
                     </tr>
                 </table>
             </article>
-            <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_price_ttl_img_pc.png" 
+            <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign01_price_ttl_img_pc.png') ?>" 
             class="plan_img" alt="スマホプラン" />
             <div class="accordion" id="accordionExample">
                 <div class="accordion-item position-relative">
@@ -141,7 +141,7 @@
                     </div>
                     <h2 class="accordion-header py-5" id="headingOne">
                         <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/l-campaign01_price_btn_more_img.png" 
+                            <img src="<?php echo esc_url(get_template_directory_uri() .'/images/l-campaign01_price_btn_more_img.png') ?>" 
                             alt="スマホプランをもっと見る" />
                         </button>
                     </h2>
@@ -171,24 +171,24 @@
         </section>
         <section class="benefits w-100">
             <h4 class="mb-4">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_period_ttl_img_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign01_period_ttl_img_pc.png') ?>" 
                 class="w-100" alt="キャンペーン期間"/>
             </h4>
             <div class="seventeen-img mb-5">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_period_ttl_sub_img_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign01_period_ttl_sub_img_pc.png') ?>" 
                 class="mb-2" alt="3/17終了"/>
                 <ul class="my-4">
                     <li>※キャンペーン終了時期は、ホームページなどでお知らせします。</li>
                 </ul>
             </div>
             <h4 class="mb-5">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_period_privilege_ttl_img_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign01_period_privilege_ttl_img_pc.png') ?>" 
                 class="w-100" alt="特典">
             </h4>
             <p class="font-weight-bold text-left">「通話準定額」の定額料（税込550円/月）または「通話定額」の定額料（税込1,650円/月）が550円/月（税込）割引。</p>
             <p class="font-weight-bold text-left mb-5">割引期間は、ご契約月を1カ月目として13カ月間。割引を受けるには「通話準定額」または「通話定額」へのお申し込みが別途必要です。</p>
             <h4 class="my-5">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_period_condition_ttl_img_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign01_period_condition_ttl_img_pc.png') ?>" 
                 class="w-100" alt="適用条件">
             </h4>
             <p class="font-weight-bold text-left mb-5">受付期間内にLINEMOへ新規、他社からの乗り換え（MNP）、ソフトバンクまたはワイモバイルからの乗り換えで契約すること。</p>
@@ -197,27 +197,27 @@
                 <h4 class="text-left font-weight-bold mb-4">特典の適用イメージ</h4>
                 <ul class="text-left">
                     <li>
-                        <span><img src="<?php echo get_template_directory_uri(); ?>/images/l-campaign01_period_condition_img_list01.png" 
+                        <span><img src="<?php echo esc_url(get_template_directory_uri() .'/images/l-campaign01_period_condition_img_list01.png') ?>" 
                         alt="まる1" class="circle-num"></span>
                         ご契約当月の割引額は日割りになります。
                     </li>
                     <li>
-                        <span><img src="<?php echo get_template_directory_uri(); ?>/images/l-campaign01_period_condition_img_list02.png" 
+                        <span><img src="<?php echo esc_url(get_template_directory_uri() .'/images/l-campaign01_period_condition_img_list02.png') ?>" 
                         alt="まる2" class="circle-num"></span>
                         通話オプションを別の通話オプションへ変更した場合も特典適用期間内であれば割引されます。
                     </li>
                     <li>
-                        <span><img src="<?php echo get_template_directory_uri(); ?>/images/l-campaign01_period_condition_img_list03.png" 
+                        <span><img src="<?php echo esc_url(get_template_directory_uri() .'/images/l-campaign01_period_condition_img_list03.png') ?>" 
                         alt="まる3" class="circle-num"></span>
                         通話オプションに加入していない期間は割引されませんが、割引適用期間にはカウントされます。
                     </li>
                     <li>
-                        <span><img src="<?php echo get_template_directory_uri(); ?>/images/l-campaign01_period_condition_img_list04.png" 
+                        <span><img src="<?php echo esc_url(get_template_directory_uri() .'/images/l-campaign01_period_condition_img_list04.png') ?>" 
                         alt="まる4" class="circle-num"></span>
                         通話オプションを解除し再度加入した場合も特典適用期間内であれば割引されます。
                     </li>
                 </ul>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/pc/l-campaign01_period_condition_img_pc.png" 
+                <img src="<?php echo esc_url(get_template_directory_uri() .'/images/pc/l-campaign01_period_condition_img_pc.png') ?>" 
                 class="w-100" alt="適用期間のイメージ">
             </div>
             <div class="note-matters my-5">

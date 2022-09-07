@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico">
-    <title>Document</title>
+    <title>LINEMO</title>
     <meta name="description" content="サイトキャプションを入力">
     <meta name="keywords" content="サイトキーワードを,で区切って入力">
     <style>
@@ -347,7 +347,7 @@
 <body <?php body_class(['drawer', 'drawer--right']); ?>>
     <header class="w-100" role="banner">
         <div class="d-flex justify-content-between position-fixed bg-white">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/p-header_logo.svg" 
+            <img src="<?php echo esc_url(get_template_directory_uri() .'/images/p-header_logo.svg') ?>" 
             alt="linemo-logo" />
             <!-- drawer.jsのクラス名は固有のもの -->
             <button type="button" class="drawer-toggle drawer-hamburger py-0">
